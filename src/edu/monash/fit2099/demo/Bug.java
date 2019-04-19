@@ -12,7 +12,7 @@ public class Bug extends Actor {
 	public List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 
 	public Bug() {
-		super("Feature", 'x', 2, 10);
+		super("Buggy", 'x', 2, 10);
 	}
 	
 	@Override
