@@ -12,6 +12,8 @@ public class Goon extends Actor {
     public Goon(String name, Actor player) {
         super(name, 'G', 5, 100);
         addBehaviour(new FollowBehaviour(player));
+//        addBehaviour(new insultBehaviour(player));
+
     }
 
     private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
