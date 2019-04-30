@@ -89,6 +89,7 @@ public class Actor implements Skilled, Comparable<Actor>, Printable {
 	 * @return A collection of Actions.
 	 */
 	public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+//		All Actors have an attack action inherently
 		return new Actions(new AttackAction(otherActor, this));
 	}
 
