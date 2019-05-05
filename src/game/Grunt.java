@@ -5,9 +5,6 @@ import edu.monash.fit2099.engine.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
 public class Grunt extends Actor {
 
 	// Grunts have 50 hitpoints and are always represented with a g
