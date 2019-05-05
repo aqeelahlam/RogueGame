@@ -2,18 +2,29 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class insultBehaviour extends Action implements ActionFactory{
 
     private Actor target;
+    private Random rand = new Random();
+    private ArrayList<String> insults = new ArrayList<>();
+    private String Insult;
+
 
     public insultBehaviour(Actor subject) {
         this.target = subject;
+        insults.add("You suck");
+        insults.add("Ewww youre ");
+        insults.add("Useless");
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        return actor + " spits a horrible green slime at " + target + "." + System.lineSeparator()+
-                "It's gross, but harmless.";
+        Insult = insults.get(rand.nextInt(insults.size()));
+
+        return Insult + " " + target + "." + System.lineSeparator();
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Goon extends Actor {
     public Goon(String name, Actor player) {
         super(name, 'G', 5, 50);
         addBehaviour(new FollowBehaviour(player));
-//        addBehaviour(new insultBehaviour(player));
+        addBehaviour(new insultBehaviour(player));
 
     }
 
