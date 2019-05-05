@@ -11,21 +11,29 @@ public class insultBehaviour extends Action implements ActionFactory{
     private Random rand = new Random();
     private ArrayList<String> insults = new ArrayList<>();
     private String Insult;
+    private float insultChance;
 
 
     public insultBehaviour(Actor subject) {
         this.target = subject;
-        insults.add("You suck");
-        insults.add("Ewww youre ");
+        insults.add("Idiot");
+        insults.add("Moron");
         insults.add("Useless");
+        insults.add("Pimple head");
+        insults.add("Baboon");
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
         Insult = insults.get(rand.nextInt(insults.size()));
 
-        return Insult + " " + target + "." + System.lineSeparator();
+        insultChance = rand.nextFloat();
+        if (insultChance <= 0.1) {
+            return actor + " says " + Insult + " " + "to " + target + "." + System.lineSeparator();
+        }
+        return null;
     }
+
 
     @Override
     public Action getAction(Actor actor, GameMap map) {

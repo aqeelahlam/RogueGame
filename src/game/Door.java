@@ -11,9 +11,6 @@ public class Door extends Ground {
 
     @Override
     public boolean canActorEnter(Actor actor) {
-
-
-
         return false;
     }
 

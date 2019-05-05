@@ -38,10 +38,10 @@ public class Application {
 		
 //		Grunt grunt = new Grunt("Mongo", player);
 //		gameMap.addActor(grunt, 0, 0);
-		Goon goon = new Goon("Vimuthy", player);
-		gameMap.addActor(goon, 10,10);
 //		Grunt grunt2 = new Grunt("Norbert", player);
 //		gameMap.addActor(grunt2,  10, 10);
+		Goon goon = new Goon("Vimuthy", player);
+		gameMap.addActor(goon, 0,0);
 			
 		world.run();
 	}

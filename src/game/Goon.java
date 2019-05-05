@@ -10,11 +10,12 @@ public class Goon extends Actor {
 
     // Goons have 100(twice of Grunt) hitpoints and are always represented with a G
     public Goon(String name, Actor player) {
+
         super(name, 'G', 5, 50);
         addBehaviour(new FollowBehaviour(player));
         addBehaviour(new insultBehaviour(player));
+        }
 
-    }
 
     private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 

@@ -1,4 +1,11 @@
 package game;
 
-public class Key {
+import edu.monash.fit2099.engine.Item;
+
+public class Key extends Item {
+
+    public Key(){
+        super("Key", 'K');
+        
+    }
 }
