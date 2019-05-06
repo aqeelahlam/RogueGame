@@ -14,7 +14,7 @@ public class Bug extends Actor {
 	public Bug() {
 		super("Buggy", 'x', 2, 10);
 	}
-	
+
 	@Override
 	public Action playTurn(Actions actions, GameMap map, Display display) {
 		for (ActionFactory factory : actionFactories) {
@@ -22,7 +22,7 @@ public class Bug extends Actor {
 			if(action != null)
 				return action;
 		}
-		
+
 		return actions.get(rand.nextInt(actions.size()));
 	}
 

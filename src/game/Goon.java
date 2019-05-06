@@ -13,7 +13,7 @@ public class Goon extends Actor {
         super(name, 'G', 5, 50);
         addBehaviour(new FollowBehaviour(player));
         addBehaviour(new insultBehaviour(player));
-        super.addItemToInventory(Key.newKeyInstance());
+        super.addItemToInventory(Key.newKeyInstance("122"));
         }
 
 
