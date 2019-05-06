@@ -29,9 +29,9 @@ public class insultBehaviour extends Action implements ActionFactory{
 
         insultChance = rand.nextFloat();
         if (insultChance <= 0.1) {
-            return actor + " says " + Insult + " " + "to " + target + "." + System.lineSeparator();
+            return actor + " says " + Insult + " " + "to " + target + ".";
         }
-        return null;
+        return "";
     }
 
 
@@ -51,7 +51,11 @@ public class insultBehaviour extends Action implements ActionFactory{
                         return null;
                 }
             }
-            return this;
+//          This will only execute only when the chance of being insulted is >=0.1
+            if(!this.execute(actor, map).equals(""))
+            {
+                return this;
+            }
         }
         return null;
     }
