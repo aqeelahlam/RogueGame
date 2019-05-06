@@ -5,10 +5,10 @@ import edu.monash.fit2099.engine.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ninjas extends Actor {
+public class Ninja extends Actor {
 
     // Grunts have 50 hitpoints and are always represented with a g
-    public Ninjas(String name, Actor player) {
+    public Ninja(String name, Actor player) {
         super(name, 'N', 5, 50);
         addBehaviour(new stunBehaviour(player));
         super.addItemToInventory(Key.newKeyInstance("123"));
