@@ -9,7 +9,7 @@ public class Grunt extends Actor {
 
 	// Grunts have 50 hitpoints and are always represented with a g
 	public Grunt(String name, Actor player) {
-		super(name, 'g', 5, 50);
+		super(name, 'g', 5, 5);
 		addBehaviour(new FollowBehaviour(player));
 		super.addItemToInventory(Key.newKeyInstance("121"));
 	}
@@ -27,7 +27,12 @@ public class Grunt extends Actor {
 			if(action != null)
 				return action;
 		}
-		
+
+		for (Action action : actions){
+			if(action instanceof DropItemAction){
+				actions.remove(action);
+			}
+		}
 		return super.playTurn(actions,  map,  display);
 	}
 }

@@ -32,6 +32,12 @@ public class Goon extends Actor {
 
         }
 
+        for (Action action : actions){
+            if(action instanceof DropItemAction){
+                actions.remove(action);
+            }
+        }
+
         return super.playTurn(actions,  map,  display);
     }
 
