@@ -13,7 +13,7 @@ public class RocketPlans extends Item {
 
         RocketPlans newRocketPlans = new RocketPlans();
         newRocketPlans.allowableActions.clear();
-        newRocketPlans.allowableActions.add(new DropItemAction());
+        newRocketPlans.allowableActions.add(new DropItemAction(newRocketPlans));
         return newRocketPlans;
     }
 }
