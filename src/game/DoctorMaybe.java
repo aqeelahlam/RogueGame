@@ -16,10 +16,6 @@ public class DoctorMaybe extends Actor {
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
         for(Action action : actions){
-
-//            if(!(action.equals(AttackAction.class)) && !(action.equals(SkipTurnAction.class))){
-//                actions.remove(action);
-//            }
             if(!(action instanceof AttackAction) && !(action instanceof SkipTurnAction)){
                 actions.remove(action);
             }
@@ -29,7 +25,7 @@ public class DoctorMaybe extends Actor {
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(2,"Slap");
+        return new IntrinsicWeapon(5/2,"Slap");
     }
 }
 
