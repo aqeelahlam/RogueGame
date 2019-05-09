@@ -5,6 +5,6 @@ import edu.monash.fit2099.engine.Item;
 public class RocketPlans extends Item {
 
     public RocketPlans(){
-        super("BuildingRocketAction Plans", 'Ø');
+        super("Rocket Plans", 'Ø');
     }
 }

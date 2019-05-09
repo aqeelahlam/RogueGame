@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Q extends Actor {
+
+//    For Javadoc: Type "/**" and press enter
+
+    /**
+     *
+     * @param name
+     * @param player
+     */
     public Q(String name, Actor player){
         super(name, 'Q',2,300);
 

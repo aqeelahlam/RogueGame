@@ -12,6 +12,7 @@ public class insultBehaviour extends Action implements ActionFactory{
     private ArrayList<String> insults = new ArrayList<>();
     private String Insult;
     private float insultChance;
+    private int distanceBetweenActors;
 
 
     public insultBehaviour(Actor subject) {
@@ -40,26 +41,17 @@ public class insultBehaviour extends Action implements ActionFactory{
         Location here = map.locationOf(actor);
         Location there = map.locationOf(target);
 
-        Range xs, ys;
-        if (here.x() == there.x() || here.y() == there.y()) {
-            xs = new Range(Math.min(here.x(), there.x()), Math.abs(here.x() - there.x()) + 1);
-            ys = new Range(Math.min(here.y(), there.y()), Math.abs(here.y() - there.y()) + 1);
+        distanceBetweenActors = distance(here, there);
 
-            for (int x : xs) {
-                for (int y : ys) {
-                    if(map.at(x, y).getGround().blocksThrownObjects())
-                        return null;
-                }
-            }
-//          This will only execute only when the chance of being insulted is >=0.1
-            if(!this.execute(actor, map).equals(""))
-            {
+        if (distanceBetweenActors == 1) {
+            if (!this.execute(actor, map).equals("")) {
                 return this;
             }
+            return null;
         }
         return null;
-    }
 
+    }
     @Override
     public String menuDescription(Actor actor) {
         return "";
@@ -68,5 +60,16 @@ public class insultBehaviour extends Action implements ActionFactory{
     @Override
     public String hotKey() {
         return "";
+    }
+
+    /**
+     * Used to calculate distance between two locations
+     * @param a first location
+     * @param b second location
+     * @return an int which is the distance between a and b
+     */
+    // Manhattan distance.
+    public int distance(Location a, Location b) {
+        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
     }
 }
