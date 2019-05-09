@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.Item;
 
 public class RocketEngine extends Item {
     public RocketEngine(){
-        super("Rocket Engine", 'ñ');
+        super("BuildingRocketAction Engine", 'ñ');
     }
 
     public static RocketEngine newRocketEngineInstance() {

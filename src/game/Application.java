@@ -16,7 +16,7 @@ public class Application {
 	public static void main(String[] args) {
 		 World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new Door());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new Door(), new RocketPad());
 		GameMap gameMap;
 
 		List<String> map = Arrays.asList(
@@ -30,7 +30,7 @@ public class Application {
 				".......................",
 				".......................",
 				".......................",
-				".......................");
+				"...........Ŕ...........");
 		gameMap = new GameMap(groundFactory, map);
 		world.addMap(gameMap);
 		
@@ -41,13 +41,22 @@ public class Application {
 //		gameMap.addActor(grunt, 0, 0);
 //		Grunt grunt2 = new Grunt("Norbert", player);
 //		gameMap.addActor(grunt2,  10, 10);
-//		Goon goon = new Goon("Vimuthy", player);
-//		gameMap.addActor(goon, 0,6);
+		Goon goon = new Goon("Vimuthy", player);
+		gameMap.addActor(goon, 0,6);
+
+		Goon goon1 = new Goon("Rashad", player);
+		gameMap.addActor(goon1, 0,10);
 //		Ninja ninja = new Ninja("Nick", player);
 //		gameMap.addActor(ninja,0,0);
-		DoctorMaybe doctorMaybe = new DoctorMaybe();
-//		gameMap.addActor(doctorMaybe, 5, 2);
-		gameMap.addActor(doctorMaybe, 0,0);
+//		DoctorMaybe doctorMaybe = new DoctorMaybe();
+////		gameMap.addActor(doctorMaybe, 5, 2);
+//		gameMap.addActor(doctorMaybe, 0,0);
+
+//		Q q = new Q("Professor X", player);
+//		gameMap.addActor(q,0,0);
+//
+//		RocketPlans rocketPlans = new RocketPlans();
+//		gameMap.addItem(rocketPlans,0,1);
 			
 		world.run();
 	}

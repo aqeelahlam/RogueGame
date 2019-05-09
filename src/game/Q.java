@@ -12,10 +12,26 @@ public class Q extends Actor {
     }
     private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
 
-    private void addBehaviour(ActionFactory behaviour) {
-        actionFactories.add(behaviour);
+
+    @Override
+    public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+        Actions list = super.getAllowableActions(otherActor, direction, map);
+        for(Item item : otherActor.getInventory()){
+            if (item.getDisplayChar() == 'Ø'){
+                list.add(new talkBehavior(otherActor, this, "Hand them over, I don't have all day!"));
+                list.add(new GivePlansAction(item, RocketBody.newRocketBodyInstance(), otherActor, this));
+                return list;
+            }
+        }
+
+        list.add(new talkBehavior(otherActor,this,"I can give you something that will help, but I'm going to need the plans."));
+
+        return list;
+
     }
 
+
+//    Do I really need this? CHECK
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
         for (ActionFactory factory : actionFactories) {
@@ -24,6 +40,13 @@ public class Q extends Actor {
                 return action;
         }
 
+        for(Action action : actions){
+            if((action instanceof AttackAction) || (action instanceof PickUpItemAction)){
+                actions.remove(action);
+            }
+        }
         return super.playTurn(actions,  map,  display);
     }
+
+
 }

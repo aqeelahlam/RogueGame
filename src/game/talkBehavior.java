@@ -16,18 +16,18 @@ public class talkBehavior extends Action{
 
     @Override
     public String execute(Actor actor, GameMap map) {
-//        This one depends on whether Q talks to player or vice versa
-        return null;
+
+        return otherPerson + " says " + speech;
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return null;
+        return actor + " speaks to " + otherPerson;
     }
 
     @Override
     public String hotKey() {
-        return null;
+        return "";
     }
 
 }
