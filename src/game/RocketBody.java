@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.Item;
 public class RocketBody extends Item {
 
     public RocketBody(){
-        super("Rocket Body", 'Ȫ');
+        super("BuildingRocketAction Body", 'Ȫ');
     }
 
     public static RocketBody newRocketBodyInstance() {
@@ -17,6 +17,4 @@ public class RocketBody extends Item {
         return newRocketBody;
 
     }
-
-
 }
