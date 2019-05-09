@@ -8,16 +8,11 @@ public class RocketPad extends Ground {
         super('Ŕ');
     }
 
+
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        BuildingRocketAction buildingRocketAction = new BuildingRocketAction();
-        for (Item item: actor.getInventory()){
-            if (item.getDisplayChar() == 'ñ'){
-                buildingRocketAction.execute(actor, location.map());
-            }
-        }
+        return new Actions(new BuildingRocketAction(actor));
 
-        return buildingRocketAction;
     }
 
     @Override

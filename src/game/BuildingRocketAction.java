@@ -2,34 +2,33 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-public class BuildingRocketAction extends DropItemAction {
+public class BuildingRocketAction extends Action {
 
-    private Item item;
-    protected int itemsDropped;
+    private Actor actor;
+    private int numberOfItems;
 
-    public BuildingRocketAction(Item item){
-        super(item);
-        this.item = item;
-        itemsDropped = 0;
+    public BuildingRocketAction(Actor actor) {
+        this.actor = actor;
+        numberOfItems = 0;
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        actor.removeItemFromInventory(item);
-        itemsDropped++;
-
-        if (itemsDropped == 2){
-            map.removeActor(actor);
-            return "Congratulations, have successfully built the Rocket" + System.lineSeparator() + "Player used Rocket to leave infested Planet.";
+        for(Item item:actor.getInventory()){
+            if(item.getDisplayChar() == 'Ȫ' || item.getDisplayChar() == 'ñ'){
+                numberOfItems ++;
+            }
         }
-        return menuDescription(actor);
-
+        if(numberOfItems == 2){
+            map.removeActor(actor);
+            return actor + " Successfully built the Rocket";
+        }
+        return actor + " you're missing a few parts ";
     }
 
     @Override
     public String menuDescription(Actor actor) {
-//        Chanhe this line
-        return actor + " drops the " + item + " on the Rocket Pad.";
+        return ("Build Rocket!");
     }
 
     @Override
@@ -37,3 +36,4 @@ public class BuildingRocketAction extends DropItemAction {
         return "";
     }
 }
+
