@@ -55,7 +55,7 @@ public class Q extends Actor {
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
      * @param display the I/O object to which messages may be written
-     * @return
+     * @return the Action that is performed
      */
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
