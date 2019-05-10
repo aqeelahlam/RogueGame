@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.*;
  */
 public class Door extends Ground {
     private Key key;
+    private boolean isUnlocked = false;
 
     /**
      * This is the constructor for Door
@@ -15,6 +16,14 @@ public class Door extends Ground {
     public Door(Key key) {
         super('†');
         this.key = key;
+    }
+
+    public boolean isUnlocked(){
+        return isUnlocked;
+    }
+
+    public void setUnlocked(boolean unlocked){
+        this.isUnlocked = unlocked;
     }
 
     /**
@@ -26,12 +35,7 @@ public class Door extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        for (Item item : actor.getInventory()) {
-            if (item.equals(key)) {
-                return true;
-            }
-        }
-        return false;
+        return isUnlocked;
     }
 
     /**
@@ -43,17 +47,21 @@ public class Door extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        if (this.canActorEnter(actor)) {
-//            return new Actions(new MoveActorAction(location, direction, ""));
-            return new Actions(new UnlockDoorAction(direction,this));
+
+        for (Item item : actor.getInventory()) {
+            if (item.equals(key)) {
+                return new Actions(new UnlockDoorAction(key, this));
+            }
         }
         return new Actions();
     }
-
-
 
     @Override
     public boolean blocksThrownObjects() {
         return true;
     }
 }
+
+
+
+
