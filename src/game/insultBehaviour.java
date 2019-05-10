@@ -5,29 +5,42 @@ import edu.monash.fit2099.engine.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class is used to allow an actor to insult
+ */
 public class insultBehaviour extends Action implements ActionFactory{
 
     private Actor target;
     private Random rand = new Random();
-    private ArrayList<String> insults = new ArrayList<>();
+    private ArrayList<String> insultsList = new ArrayList<>();
     private String Insult;
     private float insultChance;
     private int distanceBetweenActors;
 
-
+    /**
+     * This is the constructor for insultBehaviour
+     * @param subject The actor the insult is thrown at
+     */
     public insultBehaviour(Actor subject) {
         this.target = subject;
-        insults.add("Idiot");
-        insults.add("Moron");
-        insults.add("Useless");
-        insults.add("Pimple head");
-        insults.add("Baboon");
+//        We add insults to the ArrayList of insults
+        insultsList.add("Fatty");
+        insultsList.add("Moron");
+        insultsList.add("Useless");
+        insultsList.add("Pimple head");
+        insultsList.add("Loser");
     }
 
+    /**
+     * This is used to return an insult if the insultChance generated using random is <=0.1
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return eg String: "Player says Moron to target."
+     * else Return ""
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
-        Insult = insults.get(rand.nextInt(insults.size()));
-
+        Insult = insultsList.get(rand.nextInt(insultsList.size()));
         insultChance = rand.nextFloat();
         if (insultChance <= 0.1) {
             return actor + " says " + Insult + " " + "to " + target + ".";
@@ -35,7 +48,23 @@ public class insultBehaviour extends Action implements ActionFactory{
         return "";
     }
 
+    /**
+     * Used to calculate distance between two locations
+     * @param a first location
+     * @param b second location
+     * @return an int which is the distance between a and b
+     */
+    // Manhattan distance.
+    public int distance(Location a, Location b) {
+        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
+    }
 
+    /**
+     * The insult will be thrown at target only if the target is right next to the player
+     * @param actor Actor throwing the insult
+     * @param map where actor is in the map
+     * @return
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         Location here = map.locationOf(actor);
@@ -62,14 +91,4 @@ public class insultBehaviour extends Action implements ActionFactory{
         return "";
     }
 
-    /**
-     * Used to calculate distance between two locations
-     * @param a first location
-     * @param b second location
-     * @return an int which is the distance between a and b
-     */
-    // Manhattan distance.
-    public int distance(Location a, Location b) {
-        return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
-    }
 }
