@@ -30,7 +30,7 @@ public class Application {
 		gameMap = new GameMap(groundFactory, map);
 		world.addMap(gameMap);
 		
-		Actor player = new Player("Player", '@', 1, 100);
+		newPlayer player = new newPlayer("Player", '@', 1, 100);
 		world.addPlayer(player, gameMap, 2, 11);
 
         Key key1 = new Key("Key 1",1).newKeyInstance("Key 1",1);
@@ -51,27 +51,23 @@ public class Application {
 //        Initialize Goons
 		Goon goon = new Goon("Vimuthy", player);
 		goon.addItemToInventory(key1);
-		gameMap.addActor(goon, 0,6);
+		gameMap.addActor(goon, 20,6);
 
 		Goon goon1 = new Goon("Rashad", player);
 		goon1.addItemToInventory(key2);
 		gameMap.addActor(goon1, 0,10);
 
         DoctorMaybe doctorMaybe = new DoctorMaybe();
-        gameMap.addActor(doctorMaybe, 5, 2);
+        gameMap.addActor(doctorMaybe, 6, 3);
 
+		Ninja ninja = new Ninja("Nick", player);
+		gameMap.addActor(ninja,5,5);
 
+		Q q = new Q();
+		gameMap.addActor(q,19,9);
 
-//		Ninja ninja = new Ninja("Nick", player);
-//		gameMap.addActor(ninja,0,0);
-
-//		gameMap.addActor(doctorMaybe, 0,0);
-//
-//		Q q = new Q();
-//		gameMap.addActor(q,0,0);
-//
-//		RocketPlans rocketPlans = new RocketPlans();
-//		gameMap.addItem(rocketPlans,0,1);
+		RocketPlans rocketPlans = new RocketPlans();
+		gameMap.addItem(rocketPlans,16,3);
 			
 		world.run();
 	}
