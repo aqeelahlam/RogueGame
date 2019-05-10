@@ -16,7 +16,7 @@ public class GivePlansAction extends Action {
     private Actor subject;
 
     /**
-     *
+     * This is the constructor for GivePlansAction
      * @param givingItem This is the item the player will give to the requesting actor
      * @param takingItem This is the item the player will get from the requesting actor
      * @param actor The actor performing the action.

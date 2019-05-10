@@ -54,7 +54,6 @@ public class insultBehaviour extends Action implements ActionFactory{
      * @param b second location
      * @return an int which is the distance between a and b
      */
-    // Manhattan distance.
     public int distance(Location a, Location b) {
         return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
     }

@@ -10,6 +10,10 @@ public class BuildingRocketAction extends Action {
     private Actor actor;
     private int numberOfItems;
 
+    /**
+     * This is the constructor for BuildingRocketAction
+     * @param actor The actor that has the Rocket Parts
+     */
     public BuildingRocketAction(Actor actor) {
         this.actor = actor;
         numberOfItems = 0;
