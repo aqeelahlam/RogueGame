@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This class is used to allow an actor to insult
+ * This class is used to allow an actor to throw an insult at another player
  */
 public class insultBehaviour extends Action implements ActionFactory{
 
@@ -62,7 +62,7 @@ public class insultBehaviour extends Action implements ActionFactory{
      * The insult will be thrown at target only if the target is right next to the player
      * @param actor Actor throwing the insult
      * @param map where actor is in the map
-     * @return
+     * @return Returns the result from execute
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {

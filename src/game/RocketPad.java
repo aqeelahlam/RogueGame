@@ -3,7 +3,7 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 /**
- * Class used to create the RocketPad, a position inn the map that allows player to build their Rocket
+ * This Class is used to create the RocketPad, a position in the map that allows player to build their Rocket
  */
 public class RocketPad extends Ground {
 

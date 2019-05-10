@@ -25,7 +25,7 @@ public class DoctorMaybe extends Actor {
     /**
      * The Doctor is restricted from moving and many other actions, so we remove all actions except
      * for AttackAction & SkipTurnAction.
-     * The Doctor will drop the RocketEngine when he is knocked out
+     * The Doctor will drop the RocketEngine only when he is knocked out
      * @param actions collection of possible Actions for this Actor
      * @param map     the map containing the Actor
      * @param display the I/O object to which messages may be written
