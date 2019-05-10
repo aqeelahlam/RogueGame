@@ -7,12 +7,13 @@ import java.util.List;
 
 public class Ninja extends Actor {
 
-    private Actions playerActions = new Actions();
+//    private Actions playerActions = new Actions();
 
     private Boolean stunSuccess = false;
 
+
     // Grunts have 50 hitpoints and are always represented with a g
-    public Ninja(String name, Actor player) {
+    public Ninja(String name, newPlayer player) {
         super(name, 'N', 5, 50);
         addBehaviour(new stunBehaviour(player));
 
@@ -24,36 +25,31 @@ public class Ninja extends Actor {
         actionFactories.add(behaviour);
     }
 
+
     @Override
-    public Actions getAllowableActions(Actor Player, String direction, GameMap map) {
-        if (this.stunSuccess)
+    public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+        if (stunSuccess)
         {
-            Actions newActions = new Actions();
-            for (Action action: newActions)
-            {
-                if (!(action instanceof SkipTurnAction))
-                {
-                    newActions.remove(action);
-                }
-            }
-
-            return newActions;
-
+            Actions actions = new Actions();
+            actions.clear();
+            return actions;
         }
-        return new Actions(new AttackAction(Player, this));
+        return super.getAllowableActions( otherActor,  direction,  map);
+
     }
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
         for (ActionFactory factory : actionFactories) {
             Action action = factory.getAction(this, map);
-            if(action != null)
+            if(action != null) {
                 stunSuccess = true;
                 return action;
+            }
 
         }
+        return new SkipTurnAction();
 
-        return null;
     }
 
 
