@@ -9,9 +9,8 @@ public class Grunt extends Actor {
 
 	// Grunts have 50 hitpoints and are always represented with a g
 	public Grunt(String name, Actor player) {
-		super(name, 'g', 5, 5);
+		super(name, 'g', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
-		super.addItemToInventory(Key.newKeyInstance("121"));
 	}
 
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();

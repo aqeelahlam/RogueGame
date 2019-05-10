@@ -11,7 +11,7 @@ public class Ninja extends Actor {
     public Ninja(String name, Actor player) {
         super(name, 'N', 5, 50);
         addBehaviour(new stunBehaviour(player));
-        super.addItemToInventory(Key.newKeyInstance("123"));
+
     }
 
     private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
@@ -22,7 +22,8 @@ public class Ninja extends Actor {
 
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
-        return super.getAllowableActions( otherActor,  direction,  map);
+//        return super.playTurn());
+        return null;
     }
 
     @Override

@@ -10,10 +10,9 @@ public class Goon extends Actor {
     // Goons have 50 hitpoints and are always represented with a 'G'
     public Goon(String name, Actor player) {
 
-        super(name, 'G', 5, 50);
+        super(name, 'G', 5, 5);
         addBehaviour(new FollowBehaviour(player));
         addBehaviour(new insultBehaviour(player));
-        super.addItemToInventory(Key.newKeyInstance("122"));
         }
 
 

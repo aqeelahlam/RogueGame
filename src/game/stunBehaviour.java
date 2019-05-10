@@ -3,13 +3,31 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 
-public class stunBehaviour implements ActionFactory {
+public class stunBehaviour extends Action implements ActionFactory {
 
     private Actor target;
 
     public stunBehaviour(Actor subject) {
         this.target = subject;
     }
+
+    @Override
+    public String execute(Actor actor, GameMap map)
+    {
+        return actor + " throws StunPowder " + target + "." + System.lineSeparator()+
+                "Player is Stunned.";
+    }
+    @Override
+    public String menuDescription(Actor actor) {
+        return "";
+    }
+
+    @Override
+    public String hotKey() {
+        return "";
+    }
+
+
 
     @Override
     public Action getAction(Actor actor, GameMap map)
@@ -19,11 +37,8 @@ public class stunBehaviour implements ActionFactory {
         int currentDistance = distance(here, there);
         if (currentDistance<=5)
         {
-            return new SkipTurnAction();
+            return this;
         }
-
-
-
         return null;
     }
 
