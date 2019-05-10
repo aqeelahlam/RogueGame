@@ -25,10 +25,10 @@ public class talkBehavior extends Action{
     }
 
     /**
-     *
+     * Performs the talking action
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
-     * @return
+     * @return eg String: "Player says hello"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -36,6 +36,11 @@ public class talkBehavior extends Action{
         return otherPerson + " says " + speech;
     }
 
+    /**
+     * a string describing the action
+     * @param actor The actor performing the action.
+     * @return eg String: "Player speaks to Q"
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " speaks to " + otherPerson;
