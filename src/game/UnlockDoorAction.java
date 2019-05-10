@@ -3,15 +3,14 @@ package game;
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Item;
 
 public class UnlockDoorAction extends Action {
 
-    private Item key;
+    private Key key;
     private Door door;
 
 
-    public UnlockDoorAction(Item key, Door door){
+    public UnlockDoorAction(Key key, Door door){
         this.key = key;
         this.door = door;
 
