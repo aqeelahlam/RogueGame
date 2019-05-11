@@ -16,7 +16,6 @@ public class Ninja extends Actor {
     public Ninja(String name, newPlayer player) {
         super(name, 'N', 5, 25);
         addBehaviour(new stunBehaviour(player));
-        inventory.add(new StunPowder());
 
     }
 
