@@ -16,9 +16,9 @@ public class newPlayer extends Player {
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
-        int effect = 2;
+
         if (isStun) {
-            while (missedTurns<effect)
+            while (missedTurns<2)
             {
                 missedTurns++;
                 return new SkipTurnAction();
@@ -27,6 +27,7 @@ public class newPlayer extends Player {
 
         this.isStun = false;
         return super.playTurn(actions,map,display);
+
 
     }
 }

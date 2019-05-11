@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.WeaponItem;
 public class StunPowder extends WeaponItem {
 
     public StunPowder(){
-        super("Stun Powder", 'Ø',0,"stuns");
+        super("Stun Powder", '$',0,"stuns");
     }
 
     public static StunPowder newInventoryStunPowderInstance() {

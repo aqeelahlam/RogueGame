@@ -43,24 +43,24 @@ public class Application {
         gameMap.add(door2,gameMap.at(15,4));
 
 //        Initialize Grunts
-		Grunt grunt = new Grunt("Mongo", player);
+		Grunt grunt = new Grunt("MongoK", player);
 		gameMap.addActor(grunt, 0, 0);
+		grunt.addItemToInventory(key1);
 		Grunt grunt2 = new Grunt("Norbert", player);
 		gameMap.addActor(grunt2,  10, 10);
 
 //        Initialize Goons
-		Goon goon = new Goon("Vimuthy", player);
-		goon.addItemToInventory(key1);
+		Goon goon = new Goon("VimuthiK", player);
+		goon.addItemToInventory(key2);
 		gameMap.addActor(goon, 20,6);
 
 		Goon goon1 = new Goon("Rashad", player);
-		goon1.addItemToInventory(key2);
 		gameMap.addActor(goon1, 0,10);
 
         DoctorMaybe doctorMaybe = new DoctorMaybe();
         gameMap.addActor(doctorMaybe, 6, 3);
 
-		Ninja ninja = new Ninja("Nick", player);
+		Ninja ninja = new Ninja("Ninja", player);
 		gameMap.addActor(ninja,5,5);
 
 		Q q = new Q();
