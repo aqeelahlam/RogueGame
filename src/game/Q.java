@@ -37,7 +37,7 @@ public class Q extends Actor {
         Actions list = super.getAllowableActions(otherActor, direction, map);
 //        Iterate through the inventory of the otherActor
         for(Item item : otherActor.getInventory()){
-            if (item.getDisplayChar() == 'Ø'){
+            if (item.getDisplayChar() == 'Æ'){
                 list.add(new talkBehavior(otherActor, this, "Hand them over, I don’t have all day!"));
                 list.add(new GivePlansAction(item, RocketBody.newRocketBodyInstance(), otherActor, this));
                 return list;
