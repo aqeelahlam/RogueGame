@@ -1,6 +1,9 @@
-package game;
+package game.enemy;
 
 import edu.monash.fit2099.engine.*;
+import game.ActionFactory;
+import game.newPlayer;
+import game.stunBehaviour;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,6 +18,10 @@ public class Door extends Ground {
         this.key = key;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isUnlocked(){
         return isUnlocked;
     }

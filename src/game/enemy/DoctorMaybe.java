@@ -1,6 +1,7 @@
-package game;
+package game.enemy;
 
 import edu.monash.fit2099.engine.*;
+import game.RocketEngine;
 
 import java.util.Random;
 

@@ -36,7 +36,10 @@ public class BuildingRocketAction extends Action {
             }
         }
         if(numberOfItems == 2){
-            map.removeActor(actor);
+//            map.removeActor(actor);
+
+            map.addItem(new Item("Rocket", '!'), 11,10);
+
             return actor + " Successfully built the Rocket!";
         }
         return " You're still missing a few parts, come back when you have them all ";
