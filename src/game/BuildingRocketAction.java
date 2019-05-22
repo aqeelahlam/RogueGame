@@ -9,6 +9,11 @@ public class BuildingRocketAction extends Action {
 
     private Actor actor;
     private int numberOfItems;
+//    Write (Extensibility)
+    private int MaxNoOfItems = 2;
+    private int RocketLocationX = 11;
+    private int RocketLocationY = 10;
+
 
     /**
      * This is the constructor for BuildingRocketAction
@@ -35,10 +40,16 @@ public class BuildingRocketAction extends Action {
                 numberOfItems ++;
             }
         }
-        if(numberOfItems == 2){
-//            map.removeActor(actor);
+        if(numberOfItems == MaxNoOfItems){
+            for(Item item:actor.getInventory()){
+                if(item.getDisplayChar() == 'Ȫ' || item.getDisplayChar() == 'ñ'){
+                    actor.removeItemFromInventory(item);
+                }
+            }
 
-            map.addItem(new Item("Rocket", '!'), 11,10);
+            Item rocket = Item.newFurniture("Rocket", 'R');
+            map.addItem(rocket, RocketLocationX, RocketLocationY);
+
 
             return actor + " Successfully built the Rocket!";
         }
