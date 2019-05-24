@@ -13,8 +13,7 @@ public class Key extends Item {
     }
 
 
-
-    public  Key newKeyInstance(String name,int keyId) {
+    public Key newKeyInstance(String name,int keyId) {
         Key newKey = new Key(name,keyId);
         newKey.allowableActions.clear();
         newKey.allowableActions.add(new DropItemAction(newKey));

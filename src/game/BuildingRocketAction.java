@@ -11,17 +11,17 @@ public class BuildingRocketAction extends Action {
     private int numberOfItems;
 //    Write (Extensibility)
     private int MaxNoOfItems = 2;
-    private int RocketLocationX = 11;
-    private int RocketLocationY = 10;
+    private Location rocketPadLocation;
 
 
     /**
      * This is the constructor for BuildingRocketAction
      * @param actor The actor that has the Rocket Parts
      */
-    public BuildingRocketAction(Actor actor) {
+    public BuildingRocketAction(Actor actor, Location rocketPadLocation) {
         this.actor = actor;
         numberOfItems = 0;
+        this.rocketPadLocation = rocketPadLocation;
     }
 
     /**
@@ -47,9 +47,7 @@ public class BuildingRocketAction extends Action {
                 }
             }
 
-            Item rocket = Item.newFurniture("Rocket", 'R');
-            map.addItem(rocket, RocketLocationX, RocketLocationY);
-
+            map.add(new Rocket(), rocketPadLocation);
 
             return actor + " Successfully built the Rocket!";
         }

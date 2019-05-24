@@ -25,7 +25,7 @@ public class RocketPad extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new BuildingRocketAction(actor));
+        return new Actions(new BuildingRocketAction(actor, location));
 
     }
 

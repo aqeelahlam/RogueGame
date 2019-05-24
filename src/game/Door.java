@@ -54,7 +54,7 @@ public class Door extends Ground {
 
         for (Item item : actor.getInventory()) {
             if (item.equals(key)) {
-                return new Actions(new UnlockDoorAction(key, this));
+                return new Actions(new UnlockDoorAction(key, this, location));
             }
         }
         return new Actions();
