@@ -1,10 +1,19 @@
 package game;
 
-import edu.monash.fit2099.engine.Action;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.*;
 
 public class FlyingRocketAction extends Action {
+
+    private Actor actor;
+    private Location location;
+    private Location MoonBase;
+
+
+    public FlyingRocketAction(Actor actor, Location location, Location moonBase){
+        this.actor = actor;
+        this.location = location;
+        this.MoonBase = moonBase;
+    }
 
 
     /**
@@ -16,7 +25,12 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        return null;
+        if(actor.hasSkill(SpaceSkill.SPACE_SKILL)){
+            map.moveActor(actor, map.at(0,0));
+            return "Actor moves to moon";
+        }
+        return "";
+
     }
 
     /**
@@ -27,19 +41,18 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return null;
+        return "";
     }
 
     /**
      * Returns the key used in the menu to trigger this Action.
      * <p>
      * There's no central management system for this, so you need to be careful not to use the same one twice.
-     * See https://en.wikipedia.org/wiki/Connascence
      *
      * @return The key we use for this Action in the menu.
      */
     @Override
     public String hotKey() {
-        return null;
+        return "";
     }
 }

@@ -2,6 +2,7 @@ package game.enemy;
 
 import edu.monash.fit2099.engine.*;
 import game.ActionFactory;
+import game.SpaceSkill;
 import game.newPlayer;
 import game.stunBehaviour;
 
@@ -19,6 +20,7 @@ public class Ninja extends Actor {
     public Ninja(String name, newPlayer player) {
         super(name, 'N', 5, 25);
         addBehaviour(new stunBehaviour(player));
+        addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
 
     }
 

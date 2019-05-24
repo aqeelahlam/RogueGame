@@ -3,6 +3,7 @@ package game.enemy;
 import edu.monash.fit2099.engine.*;
 import game.ActionFactory;
 import game.FollowBehaviour;
+import game.SpaceSkill;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class Grunt extends Actor {
 	public Grunt(String name, Actor player) {
 		super(name, 'g', 5, 50);
 		addBehaviour(new FollowBehaviour(player));
+		addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
 	}
 
 	private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();

@@ -3,6 +3,7 @@ package game.enemy;
 import edu.monash.fit2099.engine.*;
 import game.ActionFactory;
 import game.FollowBehaviour;
+import game.SpaceSkill;
 import game.insultBehaviour;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Goon extends Actor {
         super(name, 'G', 5, 50);
         addBehaviour(new FollowBehaviour(player));
         addBehaviour(new insultBehaviour(player));
+        addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
         }
 
     private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
