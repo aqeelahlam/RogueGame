@@ -23,6 +23,11 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        if (otherLocation.getGround().getDisplayChar()=='0')
+        {
+            actor.addSkill(OxygenSkill.OXYGEN_SKILL);
+        }
+
         for (Item item : actor.getInventory()) {
 //            if (item.hasSkill(SpaceSkill.SPACE_SKILL)) {
                if(item.getDisplayChar()=='8'){

@@ -5,13 +5,19 @@ import edu.monash.fit2099.engine.*;
 public class newPlayer extends Player {
     boolean isStun = false;
     int missedTurns = 0;
+    private boolean checkOx;
+    private boolean remainingOx;
+    private Location RocketPadLocation;
+
 
     public void setStun(boolean stun) {
         isStun = stun;
     }
 
-    public newPlayer(String name, char displayChar, int priority, int hitPoints) {
+    public newPlayer(String name, char displayChar, int priority, int hitPoints,Location rocketPadLocation) {
         super(name, displayChar, priority, hitPoints);
+        this.RocketPadLocation = rocketPadLocation;
+        addSkill(SpaceSkill.SPACE_SKILL);
     }
 
 
@@ -19,6 +25,49 @@ public class newPlayer extends Player {
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+
+        if (this.hasSkill(OxygenSkill.OXYGEN_SKILL))
+        {
+
+            for (Item item: this.getInventory())
+            {
+                if (item.getDisplayChar() == 'Ö') {
+                    if(((OxygenTank) item).getCount()==10)
+                    {
+                        this.removeItemFromInventory(item);
+                        checkOx = false;
+                        break;
+                    }
+                    else{
+                        ((OxygenTank) item).incrementCount();
+                        checkOx =true;
+                        break;
+                    }
+
+                }
+
+            }
+
+            for(Item item: this.getInventory())
+            {
+                if (item.getDisplayChar()=='Ö')
+                {
+                    remainingOx = true;
+                    break;
+                }
+                remainingOx = false;
+
+            }
+
+            if ((!checkOx) | (!remainingOx))
+            {
+                checkOx = true;
+                this.removeSkill(OxygenSkill.OXYGEN_SKILL);
+                return new FlyingRocketAction(this,RocketPadLocation);
+            }
+
+
+        }
 
         if (isStun) {
             while (missedTurns<2)
