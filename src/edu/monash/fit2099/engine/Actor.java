@@ -153,7 +153,7 @@ public class Actor implements Skilled, Comparable<Actor>, Printable {
      * @return a freshly-instantiated IntrinsicWeapon
      */
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(1000, "punches");
+		return new IntrinsicWeapon(5, "punches");
 	}
 
 	/**
