@@ -7,8 +7,16 @@ import edu.monash.fit2099.engine.Location;
 
 public class Rocket extends Ground {
 
-    public Rocket(){
+    private Location startingDestination;
+    private Location finalDestination;
+
+    public Rocket(Location finalDestination){
         super( 'R');
+        this.finalDestination = finalDestination;
+    }
+
+    public Rocket(){
+        super('R');
     }
 
     /**
@@ -21,7 +29,7 @@ public class Rocket extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new FlyingRocketAction(actor, location, location ));
+        return new Actions(new FlyingRocketAction(actor, finalDestination));
     }
 
     /**

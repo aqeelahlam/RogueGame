@@ -6,13 +6,13 @@ public class FlyingRocketAction extends Action {
 
     private Actor actor;
     private Location location;
-    private Location MoonBase;
+    private Location otherLocation;
 
 
-    public FlyingRocketAction(Actor actor, Location location, Location moonBase){
+    public FlyingRocketAction(Actor actor, Location otherLocation){
         this.actor = actor;
-        this.location = location;
-        this.MoonBase = moonBase;
+//        this.location = location;
+        this.otherLocation = otherLocation;
     }
 
 
@@ -26,7 +26,7 @@ public class FlyingRocketAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         if(actor.hasSkill(SpaceSkill.SPACE_SKILL)){
-            map.moveActor(actor, map.at(0,0));
+            map.moveActor(actor, otherLocation);
             return "Actor moves to moon";
         }
         return "";
