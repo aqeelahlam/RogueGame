@@ -14,6 +14,7 @@ public class LunarSoil extends Ground {
 //        if (actor.hasSkill(SpaceSkill.CYBERNETIC_IMPLANTS)){
 //            return true;
 //        }
+
         return actor.hasSkill(SpaceSkill.SPACE_SKILL);
     }
 }

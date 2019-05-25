@@ -10,7 +10,7 @@ public class BuildingRocketAction extends Action {
     private Actor actor;
     private int numberOfItems;
 //    Write (Extensibility)
-    private int MaxNoOfItems = 2;
+    private final static int MAXNOOFITEMS = 2;
     private Location rocketPadLocation;
     private Location finalDestination;
 
@@ -43,7 +43,7 @@ public class BuildingRocketAction extends Action {
                 numberOfItems ++;
             }
         }
-        if(numberOfItems == MaxNoOfItems){
+        if(numberOfItems == MAXNOOFITEMS){
             for(Item item:actor.getInventory()){
                 if(item.getDisplayChar() == 'Ȫ' || item.getDisplayChar() == 'ñ'){
                     actor.removeItemFromInventory(item);
