@@ -7,12 +7,15 @@ import edu.monash.fit2099.engine.*;
  */
 public class RocketPad extends Ground {
 
+    private Location MoonBase;
+
     /**
      * This is the constructor for RocketPad
      * it is presented on the map with the symbol 'Ŕ'
      */
-    public RocketPad() {
+    public RocketPad(Location moonBase) {
         super('Ŕ');
+        this.MoonBase = moonBase;
     }
 
     /**
@@ -25,7 +28,7 @@ public class RocketPad extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new BuildingRocketAction(actor, location));
+        return new Actions(new BuildingRocketAction(actor, location, MoonBase));
 
     }
 

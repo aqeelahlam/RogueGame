@@ -15,7 +15,7 @@ public class Application {
 	public static void main(String[] args) {
 		 World world = new World(new Display());
 
-		 FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new RocketPad(), new Water(), new LunarSoil());
+		 FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new Water(), new LunarSoil());
 		 GameMap gameMap;
 
 		List<String> map = Arrays.asList(
@@ -29,7 +29,7 @@ public class Application {
 				".......................",
 				".......................",
 				"...wwwww...............",
-				"...wwwww...Ŕ...........");
+				"...wwwww...............");
 		gameMap = new GameMap(groundFactory, map);
 		world.addMap(gameMap);
 
@@ -102,8 +102,11 @@ public class Application {
 //		Grunt moonGrunt2 = new Grunt("Mims2", player);
 //		moon.addActor(moonGrunt2, 0, 0);
 
-//		Rocket rocket = new Rocket(moon);
+//		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));
+
+		Rocket moonRocket = new Rocket(gameMap.at(0,0));
+		moon.add(moonRocket, moon.at(1,0));
 
 
 
@@ -111,16 +114,19 @@ public class Application {
 
 //		TO TEST     \\
 		world.addPlayer(player, gameMap, 10, 13);
-		gameMap.addItem(new SpaceSuit(), 13,9);
+//		gameMap.addItem(new SpaceSuit(), 13,9);
 
-		OxygenDispenser ox = new OxygenDispenser();
-		gameMap.add(ox,gameMap.at(11,8));
+//		OxygenDispenser ox = new OxygenDispenser();
+//		gameMap.add(ox,gameMap.at(11,8));
 
-//		RocketEngine rocketEngine = new RocketEngine();
-//		gameMap.addItem(rocketEngine,11,9);
-//
-//		RocketBody rocketBody = new RocketBody();
-//		gameMap.addItem(rocketBody, 12,9);
+		RocketEngine rocketEngine = new RocketEngine();
+		gameMap.addItem(rocketEngine,11,9);
+
+		RocketBody rocketBody = new RocketBody();
+		gameMap.addItem(rocketBody, 12,9);
+
+		RocketPad rocketPad = new RocketPad(moon.at(0,0));
+		gameMap.add(rocketPad, gameMap.at(11,10));
 
 //		gameMap.addItem(key1, 11, 9);
 //		gameMap.addItem(key2, 12,9);

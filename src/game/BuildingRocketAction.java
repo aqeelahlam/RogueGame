@@ -12,16 +12,19 @@ public class BuildingRocketAction extends Action {
 //    Write (Extensibility)
     private int MaxNoOfItems = 2;
     private Location rocketPadLocation;
+    private Location MoonBase;
+
 
 
     /**
      * This is the constructor for BuildingRocketAction
      * @param actor The actor that has the Rocket Parts
      */
-    public BuildingRocketAction(Actor actor, Location rocketPadLocation) {
+    public BuildingRocketAction(Actor actor, Location rocketPadLocation, Location moonBase) {
         this.actor = actor;
         numberOfItems = 0;
         this.rocketPadLocation = rocketPadLocation;
+        this.MoonBase = moonBase;
     }
 
     /**
@@ -47,7 +50,7 @@ public class BuildingRocketAction extends Action {
                 }
             }
 
-            map.add(new Rocket(), rocketPadLocation);
+            map.add(new Rocket(MoonBase), rocketPadLocation);
 
             return actor + " Successfully built the Rocket!";
         }

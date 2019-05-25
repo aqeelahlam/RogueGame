@@ -7,7 +7,6 @@ import edu.monash.fit2099.engine.Location;
 
 public class Rocket extends Ground {
 
-    private Location startingDestination;
     private Location finalDestination;
 
     public Rocket(Location finalDestination){
