@@ -12,7 +12,11 @@ public class newPlayer extends Player {
 
     public newPlayer(String name, char displayChar, int priority, int hitPoints) {
         super(name, displayChar, priority, hitPoints);
+        addSkill(SpaceSkill.SPACE_SKILL);
     }
+
+
+
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {

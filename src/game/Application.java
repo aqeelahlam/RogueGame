@@ -113,6 +113,8 @@ public class Application {
 		world.addPlayer(player, gameMap, 10, 13);
 		gameMap.addItem(new SpaceSuit(), 13,9);
 
+		OxygenDispenser ox = new OxygenDispenser();
+		gameMap.add(ox,gameMap.at(11,8));
 
 //		RocketEngine rocketEngine = new RocketEngine();
 //		gameMap.addItem(rocketEngine,11,9);

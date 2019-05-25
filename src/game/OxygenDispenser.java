@@ -11,14 +11,13 @@ public class OxygenDispenser extends Ground {
     public Actions allowableActions(Actor actor, Location location, String direction) {
         Actions actions =  super.allowableActions(actor,location,direction);
         actions.clear();
-        if (actor.hasSkill(SpaceSkill.SPACE_SKILL))
-        {
-            if (location.getItems().size()>0)
-            {
-                return actions;
-            }
-            else{
-                actions.add(new DispenseOxygenAction(location));
+        for (Item item:actor.getInventory()) {
+            if (item.getDisplayChar() == '8') {
+                if (location.getItems().size() > 0) {
+                    return actions;
+                } else {
+                    actions.add(new DispenseOxygenAction(location));
+                }
             }
         }
         return actions;
