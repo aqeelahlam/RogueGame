@@ -16,8 +16,10 @@ public class Water extends Ground {
 
     @Override
     public boolean canActorEnter(Actor actor) {
-        return true;
+        return false;
     }
+
+
 
 
 

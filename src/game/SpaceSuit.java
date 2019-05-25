@@ -12,6 +12,6 @@ public class SpaceSuit extends Item {
     //    Check this to see if this actually needs "Super"
     @Override
     public void addSkill(Enum skill) {
-        super.addSkill(SpaceSkill.SPACE_SKILL);
+        addSkill(SpaceSkill.SPACE_SKILL);
     }
 }

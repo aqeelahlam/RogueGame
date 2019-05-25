@@ -5,13 +5,11 @@ import edu.monash.fit2099.engine.*;
 public class FlyingRocketAction extends Action {
 
     private Actor actor;
-    private Location location;
     private Location otherLocation;
 
 
     public FlyingRocketAction(Actor actor, Location otherLocation){
         this.actor = actor;
-//        this.location = location;
         this.otherLocation = otherLocation;
     }
 
@@ -25,12 +23,16 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        if(actor.hasSkill(SpaceSkill.SPACE_SKILL)){
-            map.moveActor(actor, otherLocation);
-            return "Actor moves to moon";
-        }
-        return "";
+        for (Item item : actor.getInventory()) {
+//            if (item.hasSkill(SpaceSkill.SPACE_SKILL)) {
+               if(item.getDisplayChar()=='8'){
+                    map.moveActor(actor, otherLocation);
+                    return actor + " uses Rocket!";
+            }
 
+
+        }
+        return "You cant go to the moon without the space suit!";
     }
 
     /**
@@ -41,7 +43,7 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "";
+        return "Move to Base";
     }
 
     /**
@@ -55,4 +57,6 @@ public class FlyingRocketAction extends Action {
     public String hotKey() {
         return "";
     }
+
+
 }
