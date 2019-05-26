@@ -2,14 +2,13 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-public class FlyingRocketAction extends Action {
+public class SafetyTransportAction extends Action {
 
     private Actor actor;
     private Location otherLocation;
-    private final static int MAXCOUNT = 2;
-    private int count = 0;
+    private boolean remainingOx;
 
-    public FlyingRocketAction(Actor actor, Location otherLocation){
+    public SafetyTransportAction(Actor actor, Location otherLocation){
         this.actor = actor;
         this.otherLocation = otherLocation;
     }
@@ -24,23 +23,10 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        if (otherLocation.getGround().getDisplayChar()=='0')
-        {
-            actor.addSkill(OxygenSkill.OXYGEN_SKILL);
-        }
+        actor.removeSkill(OxygenSkill.OXYGEN_SKILL);
+        map.moveActor(actor, otherLocation);
+        return "Oxygen Depleted. Transporting back to Earth.";
 
-
-        for (Item item : actor.getInventory()) {
-//            if (item.hasSkill(SpaceSkill.SPACE_SKILL)) {
-               if(item.getDisplayChar()=='8' || item.getDisplayChar()=='Ö'){
-                    count++;
-                    if (count==MAXCOUNT){
-                    map.moveActor(actor, otherLocation);
-                    return actor + " uses Rocket!";}
-            }
-
-        }
-        return "You cant go to the moon without the space suit and oxygen!";
     }
 
     /**
@@ -51,7 +37,7 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Move to Base";
+        return "";
     }
 
     /**

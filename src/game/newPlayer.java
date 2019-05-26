@@ -28,19 +28,15 @@ public class newPlayer extends Player {
 
         if (this.hasSkill(OxygenSkill.OXYGEN_SKILL))
         {
-
-            for (Item item: this.getInventory())
-            {
+            for (Item item : this.getInventory()) {
                 if (item.getDisplayChar() == 'Ö') {
                     if(((OxygenTank) item).getCount()==10)
                     {
                         this.removeItemFromInventory(item);
-                        checkOx = false;
                         break;
                     }
                     else{
                         ((OxygenTank) item).incrementCount();
-                        checkOx =true;
                         break;
                     }
 
@@ -55,17 +51,16 @@ public class newPlayer extends Player {
                     remainingOx = true;
                     break;
                 }
-                remainingOx = false;
+                else {
+                    remainingOx = false;
+
+                }
 
             }
-
-            if ((!checkOx) | (!remainingOx))
+            if(!remainingOx)
             {
-                checkOx = true;
-                this.removeSkill(OxygenSkill.OXYGEN_SKILL);
-                return new FlyingRocketAction(this,RocketPadLocation);
+                return new SafetyTransportAction(this,RocketPadLocation);
             }
-
 
         }
 
