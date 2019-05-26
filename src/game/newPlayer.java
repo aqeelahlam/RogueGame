@@ -24,12 +24,15 @@ public class newPlayer extends Player {
 
 
     @Override
-    public Action playTurn(Actions actions, GameMap map, Display display) {
+    public Action playTurn(Actions actions, GameMap map, Display display)
+    {
 
         if (this.hasSkill(OxygenSkill.OXYGEN_SKILL))
         {
-            for (Item item : this.getInventory()) {
-                if (item.getDisplayChar() == 'Ö') {
+            for (Item item : this.getInventory())
+            {
+                if (item.getDisplayChar() == 'Ö')
+                {
                     if(((OxygenTank) item).getCount()==10)
                     {
                         this.removeItemFromInventory(item);
@@ -51,10 +54,12 @@ public class newPlayer extends Player {
                     remainingOx = true;
                     break;
                 }
-                else {
+                else
+                {
                     remainingOx = false;
 
                 }
+
 
             }
             if(!remainingOx)
@@ -64,7 +69,8 @@ public class newPlayer extends Player {
 
         }
 
-        if (isStun) {
+        if (isStun)
+        {
             while (missedTurns<2)
             {
                 missedTurns++;
