@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.DropItemAction;
 import edu.monash.fit2099.engine.WeaponItem;
 import game.enemy.YugoMaxx;
 
@@ -18,7 +19,9 @@ public class WaterPistol extends WeaponItem {
 
     @Override
     public Actions getAllowableActions() {
-        return new Actions(new ShootAction(target));
+
+        super.allowableActions.add(new ShootAction(target));
+        return super.allowableActions;
     }
 
     public void setFull(boolean full) {

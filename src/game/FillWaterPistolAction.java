@@ -24,7 +24,7 @@ public class FillWaterPistolAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         waterPistol.setFull(true);
-        return actor + "'s" + "Weapon Reloaded";
+        return actor + "'s" + " Weapon Reloaded";
 
     }
 
@@ -36,7 +36,7 @@ public class FillWaterPistolAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return null;
+        return "Reload Water Pistol";
     }
 
     /**
@@ -49,6 +49,6 @@ public class FillWaterPistolAction extends Action {
      */
     @Override
     public String hotKey() {
-        return null;
+        return "";
     }
 }
