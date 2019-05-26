@@ -1,6 +1,8 @@
 package game.enemy;
 
 import edu.monash.fit2099.engine.*;
+import game.ShootAction;
+import game.WaterPistol;
 
 public class YugoMaxx extends Actor {
 
@@ -30,12 +32,37 @@ public class YugoMaxx extends Actor {
      */
     @Override
     public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
-        return super.getAllowableActions(otherActor, direction, map);
+        Actions actions = super.getAllowableActions(otherActor, direction, map);
+        if (otherActor.getDisplayChar()=='@' )
+        {
+            for(Item item:otherActor.getInventory())
+            {
+                if (item.getDisplayChar()=='P')
+                {
+                    if(((WaterPistol) item).isFull())
+                    {
+                        actions.add(new ShootAction(this));
+                    }
+                }
+            }
+        }
+        return actions;
     }
 
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
         return super.playTurn(actions, map, display);
+    }
+
+    @Override
+    public void hurt(int points) {
+        if (this.exoskeleton)
+        {
+            hitPoints-=0;
+        }
+        else {
+            hitPoints-=points;
+        }
     }
 
     @Override

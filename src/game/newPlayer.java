@@ -14,31 +14,23 @@ public class newPlayer extends Player {
         isStun = stun;
     }
 
-    public newPlayer(String name, char displayChar, int priority, int hitPoints,Location rocketPadLocation) {
+    public newPlayer(String name, char displayChar, int priority, int hitPoints, Location rocketPadLocation) {
         super(name, displayChar, priority, hitPoints);
         this.RocketPadLocation = rocketPadLocation;
         addSkill(SpaceSkill.SPACE_SKILL);
     }
 
 
-
-
     @Override
-    public Action playTurn(Actions actions, GameMap map, Display display)
-    {
+    public Action playTurn(Actions actions, GameMap map, Display display) {
 
-        if (this.hasSkill(OxygenSkill.OXYGEN_SKILL))
-        {
-            for (Item item : this.getInventory())
-            {
-                if (item.getDisplayChar() == 'Ö')
-                {
-                    if(((OxygenTank) item).getCount()==10)
-                    {
+        if (this.hasSkill(OxygenSkill.OXYGEN_SKILL)) {
+            for (Item item : this.getInventory()) {
+                if (item.getDisplayChar() == 'Ö') {
+                    if (((OxygenTank) item).getCount() == 10) {
                         this.removeItemFromInventory(item);
                         break;
-                    }
-                    else{
+                    } else {
                         ((OxygenTank) item).incrementCount();
                         break;
                     }
@@ -47,40 +39,48 @@ public class newPlayer extends Player {
 
             }
 
-            for(Item item: this.getInventory())
-            {
-                if (item.getDisplayChar()=='Ö')
-                {
+            for (Item item : this.getInventory()) {
+                if (item.getDisplayChar() == 'Ö') {
                     remainingOx = true;
                     break;
-                }
-                else
-                {
+                } else {
                     remainingOx = false;
 
                 }
 
 
             }
-            if(!remainingOx)
-            {
-                return new SafetyTransportAction(this,RocketPadLocation);
+            if (!remainingOx) {
+                return new SafetyTransportAction(this, RocketPadLocation);
             }
 
         }
 
-        if (isStun)
-        {
-            while (missedTurns<2)
-            {
+        if (isStun) {
+            while (missedTurns < 2) {
                 missedTurns++;
                 return new SkipTurnAction();
             }
         }
 
         this.isStun = false;
-        return super.playTurn(actions,map,display);
+        return super.playTurn(actions, map, display);
 
 
     }
+
+//    @Override
+//    public Weapon getWeapon()
+//    {
+//        for (Item item : inventory)
+//        {
+//            if ((item.asWeapon() != null & ((WeaponItem) item).damage() > 0))
+//            {
+//                return item.asWeapon();
+//            }
+//        return getIntrinsicWeapon();
+//
+//        }
+//
+//    }
 }

@@ -9,18 +9,14 @@ import game.enemy.YugoMaxx;
 public class WaterPistol extends WeaponItem {
 
     private boolean isFull = false;
-    private Actor target;
 
-    public WaterPistol(Actor target){
+    public WaterPistol(){
         super("Water Pistol", 'P', 0,"Splash");
-        this.target = target;
-
     }
 
     @Override
     public Actions getAllowableActions() {
 
-        super.allowableActions.add(new ShootAction(target));
         return super.allowableActions;
     }
 

@@ -23,11 +23,28 @@ public class ShootAction extends Action {
         if (ShootChance<0.7)
         {
 
-            ((YugoMaxx) target).setExoskeleton(true);
+            ((YugoMaxx) target).setExoskeleton(false);
+            for(Item item:actor.getInventory())
+            {
+                if (item.getDisplayChar()=='P')
+                {
+                    actor.removeItemFromInventory(item);
+
+                }
+            }
+
             return "The Exoskeleton of Yugo Maxx has been broken down.";
 
         }
         else {
+            for(Item item:actor.getInventory())
+            {
+                if (item.getDisplayChar()=='P')
+                {
+                    ((WaterPistol) item).setFull(false);
+
+                }
+            }
             return "The shot missed.";
         }
     }
