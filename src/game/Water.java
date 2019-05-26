@@ -1,9 +1,14 @@
 package game;
 
+import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
+import edu.monash.fit2099.engine.Location;
 
 public class Water extends Ground {
+
+    private final static int MAXLOAD = 1;
+    private int fillAmount;
 
     /**
      * Constructor.
@@ -19,12 +24,12 @@ public class Water extends Ground {
         return false;
     }
 
-
-
-
-
-
-
-
-}
+    @Override
+    public Actions allowableActions(Actor actor, Location location, String direction) {
+        if(fillAmount==0){
+            return new Actions(new FillWaterPistolAction(fillAmount));
+        }
+        return null;
+    }
+    }
 
