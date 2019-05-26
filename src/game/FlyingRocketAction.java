@@ -24,20 +24,24 @@ public class FlyingRocketAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        if (otherLocation.getGround().getDisplayChar()=='0')
+
+        for (Item item : actor.getInventory())
         {
-            actor.addSkill(OxygenSkill.OXYGEN_SKILL);
-        }
 
-
-        for (Item item : actor.getInventory()) {
 //            if (item.hasSkill(SpaceSkill.SPACE_SKILL)) {
-               if(item.getDisplayChar()=='8' || item.getDisplayChar()=='Ö'){
+               if(item.getDisplayChar()=='8' || item.getDisplayChar()=='Ö')
+               {
                     count++;
-                    if (count==MAXCOUNT){
+                    if (count==MAXCOUNT)
+                    {
                     map.moveActor(actor, otherLocation);
-                    return actor + " uses Rocket!";}
-            }
+                    if (otherLocation.getGround().getDisplayChar()=='0')
+                    {
+                        actor.addSkill(OxygenSkill.OXYGEN_SKILL);
+                    }
+                    return actor + " uses Rocket!";
+                    }
+                }
 
         }
         return "You cant go to the moon without the space suit and oxygen!";
