@@ -4,10 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import edu.monash.fit2099.engine.*;
-import game.enemy.DoctorMaybe;
-import game.enemy.Goon;
-import game.enemy.Grunt;
-import game.enemy.Ninja;
+import game.enemy.*;
 
 public class Application {
 
@@ -48,10 +45,11 @@ public class Application {
 		GameMap moon = new GameMap(groundFactory, Moon);
 		world.addMap(moon);
 
-		
-		newPlayer player = new newPlayer("Player", '@', 1, 100);
 
+		newPlayer player = new newPlayer("Player", '@', 1, 100, gameMap.at(11,10));
 
+		SpaceSuit spaceSuit = new SpaceSuit();
+		gameMap.addItem(spaceSuit,13,9);
 //		world.addPlayer(player, gameMap, 2, 11);
 //
 //
@@ -69,7 +67,7 @@ public class Application {
 //
 ////        Initialize Grunts
 //		Grunt grunt = new Grunt("MongoK", player);
-//		gameMap.addActor(grunt, 0, 0);
+//		gameMap.addActor(grunt, 0, 5);
 //		grunt.addItemToInventory(key1);
 //		Grunt grunt2 = new Grunt("Norbert", player);
 //		gameMap.addActor(grunt2,  10, 10);
@@ -105,8 +103,8 @@ public class Application {
 //		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));
 
-		Rocket moonRocket = new Rocket(gameMap.at(0,0));
-		moon.add(moonRocket, moon.at(1,0));
+//		Rocket moonRocket = new Rocket(gameMap.at(11,9));
+//		moon.add(moonRocket, moon.at(5,9));
 
 
 
@@ -116,16 +114,24 @@ public class Application {
 		world.addPlayer(player, gameMap, 10, 13);
 //		gameMap.addItem(new SpaceSuit(), 13,9);
 
-//		OxygenDispenser ox = new OxygenDispenser();
-//		gameMap.add(ox,gameMap.at(11,8));
+		YugoMaxx yugoMaxx = new YugoMaxx();
+		gameMap.addActor(yugoMaxx, 0,7);
 
+		gameMap.addItem(new WaterPistol(), 13, 9);
+
+		OxygenDispenser ox = new OxygenDispenser();
+		gameMap.add(ox,gameMap.at(11,8));
+//
+		Rocket rocket = new Rocket(moon.at(5,8));
+		gameMap.add(rocket, gameMap.at(11,10));
+//
 		RocketEngine rocketEngine = new RocketEngine();
 		gameMap.addItem(rocketEngine,11,9);
 
 		RocketBody rocketBody = new RocketBody();
 		gameMap.addItem(rocketBody, 12,9);
-
-		RocketPad rocketPad = new RocketPad(moon.at(0,0));
+//
+		RocketPad rocketPad = new RocketPad(moon.at(5,8));
 		gameMap.add(rocketPad, gameMap.at(11,10));
 
 //		gameMap.addItem(key1, 11, 9);
