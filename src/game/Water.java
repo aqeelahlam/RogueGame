@@ -1,18 +1,13 @@
 package game;
 
-import edu.monash.fit2099.engine.Actions;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Ground;
-import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.*;
 
 public class Water extends Ground {
 
-    private final static int MAXLOAD = 1;
-    private int fillAmount;
 
     /**
      * Constructor.
-     *
+     * <p>
      * displayChar character to display for this type of terrain
      */
     public Water() {
@@ -26,10 +21,13 @@ public class Water extends Ground {
 
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        if(fillAmount==0){
-            return new Actions(new FillWaterPistolAction(fillAmount));
+        for(Item item:actor.getInventory()){
+            if(item.getDisplayChar() == 'P'){
+                return new Actions(new FillWaterPistolAction((WaterPistol) item));
+            }
         }
-        return null;
+        return new Actions();
+
     }
-    }
+}
 

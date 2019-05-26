@@ -1,17 +1,15 @@
 package game;
 
-import edu.monash.fit2099.engine.Action;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.GameMap;
-import edu.monash.fit2099.engine.Item;
+import edu.monash.fit2099.engine.*;
 
 public class FillWaterPistolAction extends Action {
 
     private int FillAmount;
+    private WaterPistol waterPistol;
 
-    public FillWaterPistolAction(int fillAmount){
+    public FillWaterPistolAction(WaterPistol WaterPistol){
 
-        this.FillAmount = fillAmount;
+        this.waterPistol = WaterPistol;
 
     }
 
@@ -25,13 +23,9 @@ public class FillWaterPistolAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        for (Item item: actor.getInventory()){
-            if(item.getDisplayChar()=='P'){
-                FillAmount++;
-                return "Pistol Reloaded";
-            }
-        }
-        return "";
+        waterPistol.setFull(true);
+        return actor + "'s" + "Weapon Reloaded";
+
     }
 
     /**
