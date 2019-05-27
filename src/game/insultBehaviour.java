@@ -66,19 +66,22 @@ public class insultBehaviour extends Action implements ActionFactory{
      */
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        Location here = map.locationOf(actor);
-        Location there = map.locationOf(target);
+        if (target.isConscious()) {
+            Location here = map.locationOf(actor);
+            Location there = map.locationOf(target);
 
-        distanceBetweenActors = distance(here, there);
+            distanceBetweenActors = distance(here, there);
 
-        if (distanceBetweenActors == 1) {
-            if (!this.execute(actor, map).equals("")) {
-                return this;
+            if (distanceBetweenActors == 1) {
+                if (!this.execute(actor, map).equals("")) {
+                    return this;
+                }
+                return null;
             }
             return null;
+
         }
         return null;
-
     }
     @Override
     public String menuDescription(Actor actor) {
