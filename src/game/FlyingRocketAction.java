@@ -1,17 +1,21 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.enemy.YugoMaxx;
 
 public class FlyingRocketAction extends Action {
 
     private Actor actor;
+    private Actor enemy;
     private Location otherLocation;
     private final static int MAXCOUNT = 2;
     private int count = 0;
 
-    public FlyingRocketAction(Actor actor, Location otherLocation){
+    public FlyingRocketAction(Actor actor, Location otherLocation,Actor enemy)
+    {
         this.actor = actor;
         this.otherLocation = otherLocation;
+        this.enemy =enemy;
     }
 
 
@@ -23,7 +27,8 @@ public class FlyingRocketAction extends Action {
      * @return a description of what happened that can be displayed to the user.
      */
     @Override
-    public String execute(Actor actor, GameMap map) {
+    public String execute(Actor actor, GameMap map)
+    {
 
         for (Item item : actor.getInventory())
         {
@@ -35,13 +40,14 @@ public class FlyingRocketAction extends Action {
                     if (count==MAXCOUNT)
                     {
                     map.moveActor(actor, otherLocation);
-                    if (otherLocation.getGround().getDisplayChar()=='0')
+                    if (otherLocation.getGround().getDisplayChar()=='.')
                     {
                         actor.addSkill(OxygenSkill.OXYGEN_SKILL);
                     }
+                    enemy.addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
                     return actor + " uses Rocket!";
                     }
-                }
+               }
 
         }
         return "You cant go to the moon without the space suit and oxygen!";

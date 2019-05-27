@@ -4,14 +4,18 @@ import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
+import game.enemy.YugoMaxx;
 
 public class Rocket extends Ground {
 
     private Location finalDestination;
+    private Actor enemy;
 
-    public Rocket(Location finalDestination){
+    public Rocket(Location finalDestination, Actor enemy){
         super( 'R');
         this.finalDestination = finalDestination;
+        this.enemy = enemy;
+
     }
 
     public Rocket(){
@@ -28,7 +32,7 @@ public class Rocket extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new FlyingRocketAction(actor, finalDestination));
+        return new Actions(new FlyingRocketAction(actor, finalDestination,enemy));
     }
 
     /**

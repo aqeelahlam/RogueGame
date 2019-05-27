@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.*;
 
 public class newPlayer extends Player {
     boolean isStun = false;
-    int missedTurns = 0;
+    private int missedTurns = 0;
     private boolean checkOx;
     private boolean remainingOx;
     private Location RocketPadLocation;
@@ -17,7 +17,7 @@ public class newPlayer extends Player {
     public newPlayer(String name, char displayChar, int priority, int hitPoints, Location rocketPadLocation) {
         super(name, displayChar, priority, hitPoints);
         this.RocketPadLocation = rocketPadLocation;
-        addSkill(SpaceSkill.SPACE_SKILL);
+//        addSkill(SpaceSkill.SPACE_SKILL);
     }
 
 
@@ -69,7 +69,12 @@ public class newPlayer extends Player {
 
     }
 
-//    @Override
+    @Override
+    protected IntrinsicWeapon getIntrinsicWeapon() {
+        return new IntrinsicWeapon(100, "Focus Punch");
+    }
+
+    //    @Override
 //    public Weapon getWeapon()
 //    {
 //        for (Item item : inventory)

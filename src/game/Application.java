@@ -10,7 +10,7 @@ public class Application {
 
 
 	public static void main(String[] args) {
-		 World world = new World(new Display());
+		 World world = new NewWorld(new Display());
 
 		 FancyGroundFactory groundFactory = new FancyGroundFactory(new Floor(), new Wall(), new Water(), new LunarSoil());
 		 GameMap gameMap;
@@ -105,8 +105,11 @@ public class Application {
 		RocketPlans rocketPlans = new RocketPlans();
 		gameMap.addItem(rocketPlans,16,3);
 
+		YugoMaxx yugoMaxx = new YugoMaxx();
+		moon.addActor(yugoMaxx, 5,5);
+
 //		RocketPad:
-		RocketPad rocketPad = new RocketPad(moon.at(5,8));
+		RocketPad rocketPad = new RocketPad(moon.at(5,8), yugoMaxx);
 		gameMap.add(rocketPad, gameMap.at(11,10));
 
 //		SpaceSuit:
@@ -135,8 +138,12 @@ public class Application {
 
 //		Initializing Rocket in the Moon:
 
-		Rocket moonRocket = new Rocket(gameMap.at(11,9));
+		Rocket moonRocket = new Rocket(gameMap.at(11,9),yugoMaxx);
 		moon.add(moonRocket, moon.at(5,9));
+
+		WaterPistol waterPistol = new WaterPistol();
+		moon.addItem(waterPistol, 5,6);
+
 
 
 
@@ -146,8 +153,7 @@ public class Application {
 //		world.addPlayer(player, gameMap, 10, 13);
 ////		gameMap.addItem(new SpaceSuit(), 13,9);
 //
-//		YugoMaxx yugoMaxx = new YugoMaxx();
-//		gameMap.addActor(yugoMaxx, 0,7);
+
 //
 //		gameMap.addItem(new WaterPistol(), 13, 9);
 //

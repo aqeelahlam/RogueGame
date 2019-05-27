@@ -10,7 +10,6 @@ public class YugoMaxx extends Actor {
 
     public YugoMaxx(){
         super("Yugo Maxx", 'Y', 3,100);
-
     }
 
     public void setExoskeleton(boolean exoskeleton) {

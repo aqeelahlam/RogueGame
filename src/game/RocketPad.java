@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.enemy.YugoMaxx;
 
 /**
  * This Class is used to create the RocketPad, a position in the map that allows player to build their Rocket
@@ -8,14 +9,16 @@ import edu.monash.fit2099.engine.*;
 public class RocketPad extends Ground {
 
     private Location MoonBase;
+    private Actor enemy;
 
     /**
      * This is the constructor for RocketPad
      * it is presented on the map with the symbol 'Ŕ'
      */
-    public RocketPad(Location moonBase) {
+    public RocketPad(Location moonBase, Actor enemy) {
         super('Ŕ');
         this.MoonBase = moonBase;
+        this.enemy = enemy;
     }
 
     /**
@@ -28,7 +31,7 @@ public class RocketPad extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new BuildingRocketAction(actor, location, MoonBase));
+        return new Actions(new BuildingRocketAction(actor, location, MoonBase, enemy));
 
     }
 

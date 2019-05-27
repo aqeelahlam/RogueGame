@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.enemy.YugoMaxx;
 
 /**
  * This class is used to build the rocket
@@ -13,6 +14,7 @@ public class BuildingRocketAction extends Action {
     private final static int MAXNOOFITEMS = 2;
     private Location rocketPadLocation;
     private Location finalDestination;
+    private Actor enemy;
 
 
 
@@ -20,11 +22,12 @@ public class BuildingRocketAction extends Action {
      * This is the constructor for BuildingRocketAction
      * @param actor The actor that has the Rocket Parts
      */
-    public BuildingRocketAction(Actor actor, Location rocketPadLocation, Location finalDestination) {
+    public BuildingRocketAction(Actor actor, Location rocketPadLocation, Location finalDestination, Actor enemy) {
         this.actor = actor;
         numberOfItems = 0;
         this.rocketPadLocation = rocketPadLocation;
         this.finalDestination = finalDestination;
+        this.enemy = enemy;
     }
 
     /**
@@ -50,7 +53,8 @@ public class BuildingRocketAction extends Action {
                 }
             }
 
-            map.add(new Rocket(finalDestination), rocketPadLocation);
+            map.add(new Rocket(finalDestination,enemy), rocketPadLocation);
+
 
             return actor + " Successfully built the Rocket!";
         }

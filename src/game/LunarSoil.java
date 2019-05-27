@@ -1,7 +1,6 @@
 package game;
 
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Ground;
+import edu.monash.fit2099.engine.*;
 
 public class LunarSoil extends Ground {
 
@@ -10,12 +9,23 @@ public class LunarSoil extends Ground {
     }
 
     @Override
-    public boolean canActorEnter(Actor actor) {
-//        if (actor.hasSkill(SpaceSkill.CYBERNETIC_IMPLANTS)){
-//            return true;
-//        }
-
-        return actor.hasSkill(SpaceSkill.SPACE_SKILL);
+    public boolean canActorEnter(Actor actor)
+    {
+        if (actor.hasSkill(SpaceSkill.CYBERNETIC_IMPLANTS))
+        {
+            return true;
+        }
+        else
+        {
+            for (Item item:actor.getInventory())
+            {
+                if (item.getDisplayChar()=='8')
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 
