@@ -40,9 +40,13 @@ public class FlyingRocketAction extends Action {
                     if (count==MAXCOUNT)
                     {
                     map.moveActor(actor, otherLocation);
-                    if (otherLocation.getGround().getDisplayChar()=='.')
+                    if (otherLocation.getGround().getDisplayChar()=='0')
                     {
                         actor.addSkill(OxygenSkill.OXYGEN_SKILL);
+                    }
+                    if (otherLocation.getGround().getDisplayChar()=='.')
+                    {
+                        actor.removeSkill(OxygenSkill.OXYGEN_SKILL);
                     }
                     enemy.addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
                     return actor + " uses Rocket!";

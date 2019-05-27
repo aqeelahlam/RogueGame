@@ -39,8 +39,8 @@ public class Application {
 				"0000000000",
 				"0000000000",
 				"0000000000",
-				"00000.0000",
-				"0000...000");
+				"0000000000",
+				"0000000000");
 
 		GameMap moon = new GameMap(groundFactory, Moon);
 		world.addMap(moon);

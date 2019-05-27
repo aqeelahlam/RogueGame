@@ -51,6 +51,7 @@ public class newPlayer extends Player {
 
             }
             if (!remainingOx) {
+                this.removeSkill(OxygenSkill.OXYGEN_SKILL);
                 return new SafetyTransportAction(this, RocketPadLocation);
             }
 

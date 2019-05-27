@@ -26,9 +26,8 @@ public class NewWorld extends World {
             playersMap.draw(display);
             if (actorLocations.locationOf(player).getGround().getDisplayChar()=='.')
             {
-                for (int i = 0; i < player.getInventory().size(); i++)
-                {
-                    if (player.getInventory().get(i).getDisplayChar() == 'Y')
+                for(Item item: player.getInventory()){
+                    if (item.toString().equals("Sleeping Yugo Maxx"))
                     {
                         display.println("Player wins. Game Over.");
                         System.exit(1);

@@ -18,7 +18,7 @@ public class Ninja extends Actor {
 
     // Grunts have 50 hitpoints and are always represented with a g
     public Ninja(String name, newPlayer player) {
-        super(name, 'N', 5, 25);
+        super(name, 'N', 5, 100);
         addBehaviour(new stunBehaviour(player));
         addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
 
