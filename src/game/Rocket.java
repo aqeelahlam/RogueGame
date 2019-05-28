@@ -32,7 +32,7 @@ public class Rocket extends Ground {
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new FlyingRocketAction(actor, finalDestination,enemy));
+        return new Actions(new FlyingRocketAction(actor, finalDestination, enemy));
     }
 
     /**

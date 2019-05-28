@@ -55,7 +55,6 @@ public class Goon extends Actor {
             Action action = factory.getAction(this, map);
             if(action != null)
                 return action;
-
         }
 
         for (Action action : actions){

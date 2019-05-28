@@ -51,7 +51,7 @@ public class GivePlansAction extends Action {
     }
 
     /**
-     * a string describing the action
+     * Returns a descriptive string
      * @param actor The actor performing the action.
      * @return eg String: "Player gives Chocolate in return for Money"
      */

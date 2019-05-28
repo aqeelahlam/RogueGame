@@ -19,13 +19,17 @@ public class Door extends Ground {
     }
 
     /**
-     *
-     * @return
+     *This function is used to return the status of the door
+     * @return True if the door is unlocked, else False
      */
     public boolean isUnlocked(){
         return isUnlocked;
     }
 
+    /**
+     * This function is used to set the door as locked or unlocked
+     * @param unlocked the boolean to alter
+     */
     public void setUnlocked(boolean unlocked){
         this.isUnlocked = unlocked;
     }
@@ -47,7 +51,7 @@ public class Door extends Ground {
      * @param actor the Actor acting
      * @param location the current Location
      * @param direction the direction of the Ground from the Actor
-     * @return
+     * @return Actions
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {

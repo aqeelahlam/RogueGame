@@ -11,70 +11,66 @@ public class FlyingRocketAction extends Action {
     private final static int MAXCOUNT = 2;
     private int count = 0;
 
-    public FlyingRocketAction(Actor actor, Location otherLocation,Actor enemy)
-    {
-        this.actor = actor;
-        this.otherLocation = otherLocation;
-        this.enemy =enemy;
-    }
-
 
     /**
-     * Perform the Action.
+     * This is the constructor for FlyingRocketAction
+     * @param actor The actor who is transported
+     * @param otherLocation The location where the actor is transported to
+     * @param enemy The enemy who we give Cybernetic Implants to
+     */
+    public FlyingRocketAction(Actor actor, Location otherLocation, Actor enemy) {
+        this.actor = actor;
+        this.otherLocation = otherLocation;
+        this.enemy = enemy;
+    }
+
+    /**
+     * We iterate through the players inventory to check if he has a spacesuit and
+     * Oxygen tank(s) before we allow him to be transported to the base.
      *
      * @param actor The actor performing the action.
      * @param map   The map the actor is on.
      * @return a description of what happened that can be displayed to the user.
      */
     @Override
-    public String execute(Actor actor, GameMap map)
-    {
+    public String execute(Actor actor, GameMap map) {
 
-        for (Item item : actor.getInventory())
-        {
+        for (Item item : actor.getInventory()) {
 
-//            if (item.hasSkill(SpaceSkill.SPACE_SKILL)) {
-               if(item.getDisplayChar()=='8' || item.getDisplayChar()=='Ö')
-               {
+               if(item.getDisplayChar()=='8' || item.getDisplayChar()=='Ö') {
                     count++;
-                    if (count==MAXCOUNT)
-                    {
+                    if (count==MAXCOUNT) {
                     map.moveActor(actor, otherLocation);
-                    if (otherLocation.getGround().getDisplayChar()=='0')
-                    {
+                    // The player only has Oxygen skill when he is travelling to the MoonBase
+                    if (otherLocation.getGround().getDisplayChar()== '░') {
                         actor.addSkill(OxygenSkill.OXYGEN_SKILL);
                     }
-                    if (otherLocation.getGround().getDisplayChar()=='.')
-                    {
+                    // We remove oxygen skill once he travels back to earth(To maintain count of moves)
+                    if (otherLocation.getGround().getDisplayChar()=='.') {
                         actor.removeSkill(OxygenSkill.OXYGEN_SKILL);
                     }
+                    // Enemies are given these implants to allow them to walk on the moon
                     enemy.addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
+
                     return actor + " uses Rocket!";
                     }
                }
 
         }
-        return "You cant go to the moon without the space suit and oxygen!";
+        return "Unfortunately, you will still need at least one Oxygen Tank and a spaceSuit buddy";
     }
 
     /**
      * Returns a descriptive string
      *
      * @param actor The actor performing the action.
-     * @return the text we put on the menu
+     * @return eg String: Do you want to build the rocket?
      */
     @Override
     public String menuDescription(Actor actor) {
         return "Move to Base";
     }
 
-    /**
-     * Returns the key used in the menu to trigger this Action.
-     * <p>
-     * There's no central management system for this, so you need to be careful not to use the same one twice.
-     *
-     * @return The key we use for this Action in the menu.
-     */
     @Override
     public String hotKey() {
         return "";

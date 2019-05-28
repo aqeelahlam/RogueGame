@@ -4,23 +4,24 @@ import edu.monash.fit2099.engine.*;
 import game.enemy.YugoMaxx;
 
 /**
- * This class is used to build the rocket
+ * This class is used to build the rocket using the RocketBody and the RocketEngine
  */
 public class BuildingRocketAction extends Action {
 
     private Actor actor;
     private int numberOfItems;
-//    Write (Extensibility)
-    private final static int MAXNOOFITEMS = 2;
     private Location rocketPadLocation;
     private Location finalDestination;
     private Actor enemy;
-
-
+//    This variable will hold the number of items required to build the Rocket
+    private final static int MAXNOOFITEMS = 2;
 
     /**
      * This is the constructor for BuildingRocketAction
-     * @param actor The actor that has the Rocket Parts
+     * @param actor This is the actor holding the the RocketBody & RocketEngine
+     * @param rocketPadLocation The Location of the RocketPad, used to build rocket on this location
+     * @param finalDestination This is the location where the player is transported to (Eg: The Moon)
+     * @param enemy The enemy who will be given Cybernetic Implants
      */
     public BuildingRocketAction(Actor actor, Location rocketPadLocation, Location finalDestination, Actor enemy) {
         this.actor = actor;
@@ -31,8 +32,8 @@ public class BuildingRocketAction extends Action {
     }
 
     /**
-     * We check if the player has the RocketEngine and the RocketBody in his inventory,
-     * if the count of items is 2, we remove the actor and end the game
+     * We check if the player(actor) has the RocketEngine and the RocketBody in his inventory(we increment count
+     * for each item), if the count of items is 2, we build the rocket at the Rocket Pad's location.
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return
@@ -44,31 +45,25 @@ public class BuildingRocketAction extends Action {
         for(Item item:actor.getInventory()){
             if(item.getDisplayChar() == 'Ȫ' || item.getDisplayChar() == 'ñ'){
                 numberOfItems ++;
+                actor.removeItemFromInventory(item);
             }
         }
         if(numberOfItems == MAXNOOFITEMS){
-            for(Item item:actor.getInventory()){
-                if(item.getDisplayChar() == 'Ȫ' || item.getDisplayChar() == 'ñ'){
-                    actor.removeItemFromInventory(item);
-                }
-            }
-
-            map.add(new Rocket(finalDestination,enemy), rocketPadLocation);
-
+            map.add(new Rocket(finalDestination, enemy), rocketPadLocation);
 
             return actor + " Successfully built the Rocket!";
         }
-        return " You're still missing a few parts, come back when you have them all ";
+        return " You're still missing a few parts, come back when you have them all";
     }
 
     /**
      * a string describing the action
      * @param actor The actor performing the action.
-     * @return eg String: Build Rocket!
+     * @return eg String: Do you want to build the rocket?
      */
     @Override
     public String menuDescription(Actor actor) {
-        return ("Build Rocket!");
+        return ("Do you want to build the rocket?");
     }
 
     @Override

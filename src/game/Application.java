@@ -31,16 +31,16 @@ public class Application {
 		world.addMap(gameMap);
 
 		List<String> Moon = Arrays.asList(
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000",
-				"0000000000");
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░",
+				"░░░░░░░░░░");
 
 		GameMap moon = new GameMap(groundFactory, Moon);
 		world.addMap(moon);
@@ -106,7 +106,7 @@ public class Application {
 		gameMap.addItem(rocketPlans,16,3);
 
 		YugoMaxx yugoMaxx = new YugoMaxx();
-		moon.addActor(yugoMaxx, 5,5);
+		moon.addActor(yugoMaxx, 5,0);
 
 //		RocketPad:
 		RocketPad rocketPad = new RocketPad(moon.at(5,8), yugoMaxx);
@@ -161,11 +161,11 @@ public class Application {
 //		Rocket rocket = new Rocket(moon.at(5,8));
 //		gameMap.add(rocket, gameMap.at(11,10));
 ////
-//		RocketEngine rocketEngine = new RocketEngine();
-//		gameMap.addItem(rocketEngine,11,9);
-//
-//		RocketBody rocketBody = new RocketBody();
-//		gameMap.addItem(rocketBody, 12,9);
+		RocketEngine rocketEngine = new RocketEngine();
+		gameMap.addItem(rocketEngine,11,9);
+
+		RocketBody rocketBody = new RocketBody();
+		gameMap.addItem(rocketBody, 12,9);
 
 //		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));

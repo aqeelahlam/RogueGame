@@ -2,29 +2,32 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+/**
+ * This class is used to refill the water pistol
+ */
 public class FillWaterPistolAction extends Action {
 
-    private int FillAmount;
     private WaterPistol waterPistol;
 
+    /**
+     * This is the constructor for FillWaterPistolAction
+     * @param WaterPistol used to fill an instance of WaterPistol gun
+     */
     public FillWaterPistolAction(WaterPistol WaterPistol){
 
         this.waterPistol = WaterPistol;
-
     }
 
-
     /**
-     * Perform the Action.
-     *
+     * Sets the status of the WaterPistol instance to full
      * @param actor The actor performing the action.
      * @param map   The map the actor is on.
-     * @return a description of what happened that can be displayed to the user.
+     * @return eg String: "Player's Pistol Reloaded"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
         waterPistol.setFull(true);
-        return actor + "'s" + " Weapon Reloaded";
+        return actor + "'s" + " Pistol Reloaded";
 
     }
 
@@ -39,14 +42,6 @@ public class FillWaterPistolAction extends Action {
         return "Reload Water Pistol";
     }
 
-    /**
-     * Returns the key used in the menu to trigger this Action.
-     * <p>
-     * There's no central management system for this, so you need to be careful not to use the same one twice.
-     * See https://en.wikipedia.org/wiki/Connascence
-     *
-     * @return The key we use for this Action in the menu.
-     */
     @Override
     public String hotKey() {
         return "";

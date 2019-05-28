@@ -2,6 +2,10 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 public class OxygenDispenser extends Ground {
+
+    /**
+     *
+     */
     public OxygenDispenser()
     {
         super('O');

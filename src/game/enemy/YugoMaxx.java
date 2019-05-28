@@ -1,8 +1,12 @@
 package game.enemy;
 
 import edu.monash.fit2099.engine.*;
+import game.ActionFactory;
 import game.ShootAction;
 import game.WaterPistol;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class YugoMaxx extends Actor {
 
@@ -48,8 +52,25 @@ public class YugoMaxx extends Actor {
         return actions;
     }
 
+
+    private List<ActionFactory> actionFactories = new ArrayList<ActionFactory>();
+
+
     @Override
     public Action playTurn(Actions actions, GameMap map, Display display) {
+
+        for (ActionFactory factory : actionFactories) {
+            Action action = factory.getAction(this, map);
+            if(action != null)
+                return action;
+        }
+        for (Action action : actions){
+            if(action instanceof PickUpItemAction){
+                actions.remove(action);
+            }
+
+        }
+
         return super.playTurn(actions, map, display);
     }
 
