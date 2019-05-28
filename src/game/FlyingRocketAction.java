@@ -31,6 +31,7 @@ public class FlyingRocketAction extends Action {
      * @param actor The actor performing the action.
      * @param map   The map the actor is on.
      * @return a description of what happened that can be displayed to the user.
+     * Eg: "actor uses Rocket!"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -52,7 +53,7 @@ public class FlyingRocketAction extends Action {
                     // Enemies are given these implants to allow them to walk on the moon
                     enemy.addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
 
-                    return actor + " uses Rocket!";
+                    return actor + " uses Rocket";
                     }
                }
 

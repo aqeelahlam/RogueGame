@@ -14,6 +14,8 @@ public class RocketPad extends Ground {
     /**
      * This is the constructor for RocketPad
      * it is presented on the map with the symbol 'Ŕ'
+     * @param moonBase location of moonbase to transport the actor to
+     * @param enemy the enemy who we give the skill to traverse lunarsoil
      */
     public RocketPad(Location moonBase, Actor enemy) {
         super('Ŕ');
@@ -27,12 +29,11 @@ public class RocketPad extends Ground {
      * @param actor the Actor acting
      * @param location the current Location
      * @param direction the direction of the Ground from the Actor
-     * @return
+     * @return action
      */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
         return new Actions(new BuildingRocketAction(actor, location, MoonBase, enemy));
-
     }
 
     @Override

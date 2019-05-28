@@ -11,6 +11,11 @@ public class LunarSoil extends Ground {
         super('░');
     }
 
+    /**
+     * This will allow to enter either when it has CYBERNETIC_IMPLANTS or if it has spacesuit
+     * @param actor
+     * @return
+     */
     @Override
     public boolean canActorEnter(Actor actor) {
         if (actor.hasSkill(SpaceSkill.CYBERNETIC_IMPLANTS)) {

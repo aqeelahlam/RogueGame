@@ -2,12 +2,20 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+/**
+ * This class is used to safely transport the player back to earth when
+ * his oxygen has depleted
+ */
 public class SafetyTransportAction extends Action {
 
     private Actor actor;
     private Location otherLocation;
-    private boolean remainingOx;
 
+    /**
+     * This is the constructor for SafetyTransportAction
+     * @param actor The actor to be transported
+     * @param otherLocation The location where he gets transported to
+     */
     public SafetyTransportAction(Actor actor, Location otherLocation){
         this.actor = actor;
         this.otherLocation = otherLocation;
@@ -15,11 +23,12 @@ public class SafetyTransportAction extends Action {
 
 
     /**
-     * Perform the Action.
-     *
+     * We remove the Oxygen Skill from the player and just simply move the actor
+     * back to the main location(Earth)
      * @param actor The actor performing the action.
      * @param map   The map the actor is on.
      * @return a description of what happened that can be displayed to the user.
+     * Eg: "Oxygen Depleted. Transporting back to Earth."
      */
     @Override
     public String execute(Actor actor, GameMap map) {

@@ -10,6 +10,9 @@ public class WaterPistol extends WeaponItem {
 
     private boolean isFull = false;
 
+    /**
+     * This is the constructor for WaterPistol
+     */
     public WaterPistol(){
         super("Water Pistol", 'P', 0,"Splash");
     }

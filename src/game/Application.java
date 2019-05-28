@@ -90,7 +90,7 @@ public class Application {
 
 //		Ninja:
 		Ninja ninja = new Ninja("Ninja", player);
-		gameMap.addActor(ninja,5,5);
+		gameMap.addActor(ninja,8,5);
 
 
 //		Initializing Helpful Character Q:
@@ -161,11 +161,11 @@ public class Application {
 //		Rocket rocket = new Rocket(moon.at(5,8));
 //		gameMap.add(rocket, gameMap.at(11,10));
 ////
-		RocketEngine rocketEngine = new RocketEngine();
-		gameMap.addItem(rocketEngine,11,9);
-
-		RocketBody rocketBody = new RocketBody();
-		gameMap.addItem(rocketBody, 12,9);
+//		RocketEngine rocketEngine = new RocketEngine();
+//		gameMap.addItem(rocketEngine,11,9);
+//
+//		RocketBody rocketBody = new RocketBody();
+//		gameMap.addItem(rocketBody, 12,9);
 
 //		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));

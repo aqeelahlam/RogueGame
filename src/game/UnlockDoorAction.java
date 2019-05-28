@@ -11,7 +11,12 @@ public class UnlockDoorAction extends Action {
     private Door door;
     private Location doorLocation;
 
-
+    /**
+     * This is the constructor for UnlockDoorAction
+     * @param newKey The key used for this door
+     * @param newDoor The door
+     * @param newDoorLocation The location of the door
+     */
     public UnlockDoorAction(Key newKey, Door newDoor, Location newDoorLocation){
         this.key = newKey;
         this.door = newDoor;
@@ -19,21 +24,34 @@ public class UnlockDoorAction extends Action {
 
     }
 
+    /**
+     * We check if the door is unlocked, if not we unlock it and replace the door
+     * DisplayChar with a floor DisplayChar
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return Eg: "Door is unlocked"
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         if (!door.isUnlocked()){
             door.setUnlocked(true);
             map.add(new Floor(), doorLocation);
             actor.removeItemFromInventory(key);
-            return menuDescription(actor);
+            return "Door is unlocked";
         }
-        return "";
+        return  "";
 
     }
 
+    /**
+     * Returns a descriptive string
+     *
+     * @param actor The actor performing the action.
+     * @return eg String: Do you want to build the rocket?
+     */
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " unlocks this Door ";
+        return "Do you want to unlock this Door?";
     }
 
     @Override

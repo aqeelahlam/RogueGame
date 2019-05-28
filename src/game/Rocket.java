@@ -11,6 +11,11 @@ public class Rocket extends Ground {
     private Location finalDestination;
     private Actor enemy;
 
+    /**
+     * This is the constructor for Rocket
+     * @param finalDestination The destination where the player wants to go to
+     * @param enemy the enemy who will be given implants
+     */
     public Rocket(Location finalDestination, Actor enemy){
         super( 'R');
         this.finalDestination = finalDestination;

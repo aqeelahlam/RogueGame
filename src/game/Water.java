@@ -7,7 +7,6 @@ public class Water extends Ground {
 
     /**
      * Constructor.
-     * <p>
      * displayChar character to display for this type of terrain
      */
     public Water() {
@@ -19,6 +18,13 @@ public class Water extends Ground {
         return false;
     }
 
+    /**
+     * This function is used to set the water pistol instance to full
+     * @param actor the Actor acting
+     * @param location the current Location
+     * @param direction the direction of the Ground from the Actor
+     * @return
+     */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
         for(Item item:actor.getInventory()){
