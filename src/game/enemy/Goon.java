@@ -58,7 +58,7 @@ public class Goon extends Actor {
         }
 
         for (Action action : actions){
-            if(action instanceof DropItemAction){
+            if(action instanceof DropItemAction || action instanceof  PickUpItemAction){
                 actions.remove(action);
             }
         }

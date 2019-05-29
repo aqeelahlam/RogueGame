@@ -31,16 +31,16 @@ public class Application {
 		world.addMap(gameMap);
 
 		List<String> Moon = Arrays.asList(
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░",
-				"░░░░░░░░░░");
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░",
+				"░░░░░░░░░░░░░░░░░░░░");
 
 		GameMap moon = new GameMap(groundFactory, Moon);
 		world.addMap(moon);
@@ -106,10 +106,10 @@ public class Application {
 		gameMap.addItem(rocketPlans,16,3);
 
 		YugoMaxx yugoMaxx = new YugoMaxx();
-		moon.addActor(yugoMaxx, 5,0);
+		moon.addActor(yugoMaxx, 9,0);
 
 //		RocketPad:
-		RocketPad rocketPad = new RocketPad(moon.at(5,8), yugoMaxx);
+		RocketPad rocketPad = new RocketPad(moon.at(9,8), yugoMaxx);
 		gameMap.add(rocketPad, gameMap.at(11,10));
 
 //		SpaceSuit:
@@ -127,10 +127,10 @@ public class Application {
 		moon.addActor(moonGrunt1, 0, 0);
 
 		Grunt moonGrunt2 = new Grunt("Tom", player);
-		moon.addActor(moonGrunt2, 9, 0);
+		moon.addActor(moonGrunt2, 19, 9);
 
 		Goon moonGoon1 = new Goon("Jeremy", player);
-		moon.addActor(moonGoon1, 9,9);
+		moon.addActor(moonGoon1, 19,0);
 
 		Goon moonGoon2 = new Goon("Richard", player);
 		moon.addActor(moonGoon2, 0,9);
@@ -138,11 +138,11 @@ public class Application {
 
 //		Initializing Rocket in the Moon:
 
-		Rocket moonRocket = new Rocket(gameMap.at(11,9),yugoMaxx);
-		moon.add(moonRocket, moon.at(5,9));
+		Rocket moonRocket = new Rocket(gameMap.at(11,10),yugoMaxx);
+		moon.add(moonRocket, moon.at(9,9));
 
 		WaterPistol waterPistol = new WaterPistol();
-		moon.addItem(waterPistol, 5,6);
+		moon.addItem(waterPistol, 9,6);
 
 
 
@@ -161,11 +161,11 @@ public class Application {
 //		Rocket rocket = new Rocket(moon.at(5,8));
 //		gameMap.add(rocket, gameMap.at(11,10));
 ////
-//		RocketEngine rocketEngine = new RocketEngine();
-//		gameMap.addItem(rocketEngine,11,9);
+		RocketEngine rocketEngine = new RocketEngine();
+		gameMap.addItem(rocketEngine,11,9);
 //
-//		RocketBody rocketBody = new RocketBody();
-//		gameMap.addItem(rocketBody, 12,9);
+		RocketBody rocketBody = new RocketBody();
+		gameMap.addItem(rocketBody, 12,9);
 
 //		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));
