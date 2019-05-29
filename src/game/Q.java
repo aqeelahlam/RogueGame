@@ -1,9 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import game.rocket.RocketBody;
 
 /**
  * This class is for Q who is a NPC(Non-Player-Character) in the game, he will give the player the RocketBody if

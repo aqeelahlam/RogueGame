@@ -1,10 +1,9 @@
-package game;
+package game.rocket;
 
 import edu.monash.fit2099.engine.Actions;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
-import game.enemy.YugoMaxx;
 
 public class Rocket extends Ground {
 
