@@ -1,6 +1,7 @@
-package game;
+package game.WaterPistol;
 
 import edu.monash.fit2099.engine.*;
+import game.WaterPistol.WaterPistol;
 import game.enemy.YugoMaxx;
 import java.util.Random;
 

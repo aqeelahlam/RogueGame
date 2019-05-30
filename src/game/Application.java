@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import edu.monash.fit2099.engine.*;
+import game.WaterPistol.Water;
+import game.WaterPistol.WaterPistol;
 import game.enemy.*;
 import game.oxygen.OxygenDispenser;
 import game.rocket.*;

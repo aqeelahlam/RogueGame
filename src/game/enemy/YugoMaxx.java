@@ -2,8 +2,8 @@ package game.enemy;
 
 import edu.monash.fit2099.engine.*;
 import game.ActionFactory;
-import game.ShootAction;
-import game.WaterPistol;
+import game.WaterPistol.ShootAction;
+import game.WaterPistol.WaterPistol;
 
 import java.util.ArrayList;
 import java.util.List;
