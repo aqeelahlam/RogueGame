@@ -50,7 +50,7 @@ public class FlyingRocketAction extends Action {
                     if (otherLocation.getGround().getDisplayChar()=='.') {
                         actor.removeSkill(OxygenSkill.OXYGEN_SKILL);
                     }
-                    // Enemies are given these implants to allow them to walk on the moon
+                    // YugoMaxx is given these implants to allow them to walk on the moon
                     enemy.addSkill(SpaceSkill.CYBERNETIC_IMPLANTS);
 
                     return actor + " uses Rocket";
