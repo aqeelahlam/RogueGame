@@ -1,6 +1,9 @@
 package game;
 
 import edu.monash.fit2099.engine.*;
+import game.oxygen.OxygenSkill;
+import game.oxygen.OxygenTank;
+import game.rocket.SafetyTransportAction;
 
 public class newPlayer extends Player {
     boolean isStun = false;

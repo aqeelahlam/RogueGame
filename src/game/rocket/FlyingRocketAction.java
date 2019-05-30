@@ -1,7 +1,8 @@
-package game;
+package game.rocket;
 
 import edu.monash.fit2099.engine.*;
-import game.enemy.YugoMaxx;
+import game.oxygen.OxygenSkill;
+import game.SpaceSkill;
 
 public class FlyingRocketAction extends Action {
 

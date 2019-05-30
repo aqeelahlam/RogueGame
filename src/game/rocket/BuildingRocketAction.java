@@ -1,7 +1,6 @@
-package game;
+package game.rocket;
 
 import edu.monash.fit2099.engine.*;
-import game.enemy.YugoMaxx;
 
 /**
  * This class is used to build the rocket using the RocketBody and the RocketEngine

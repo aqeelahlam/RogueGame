@@ -5,6 +5,8 @@ import java.util.List;
 
 import edu.monash.fit2099.engine.*;
 import game.enemy.*;
+import game.oxygen.OxygenDispenser;
+import game.rocket.*;
 
 public class Application {
 

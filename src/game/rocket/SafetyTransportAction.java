@@ -1,6 +1,7 @@
-package game;
+package game.rocket;
 
 import edu.monash.fit2099.engine.*;
+import game.oxygen.OxygenSkill;
 
 /**
  * This class is used to safely transport the player back to earth when

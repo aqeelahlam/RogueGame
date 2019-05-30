@@ -1,7 +1,6 @@
-package game;
+package game.rocket;
 
 import edu.monash.fit2099.engine.*;
-import game.enemy.YugoMaxx;
 
 /**
  * This Class is used to create the RocketPad, a position in the map that allows player to build their Rocket
