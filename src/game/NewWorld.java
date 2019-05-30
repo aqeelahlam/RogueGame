@@ -74,6 +74,7 @@ public class NewWorld extends World {
      *
      * @param actor the Actor whose turn it is.
      */
+    @Override
     protected void processActorTurn(Actor actor) {
         Location here = actorLocations.locationOf(actor);
         GameMap map = here.map();
