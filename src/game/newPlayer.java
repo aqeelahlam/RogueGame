@@ -79,16 +79,10 @@ public class newPlayer extends Player {
 
         this.isStun = false;
         return super.playTurn(actions, map, display);
-
-
     }
 
     public void setStun(boolean stun) {
         isStun = stun;
     }
 
-    @Override
-    protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(100, "Focus Punch");
-    }
 }

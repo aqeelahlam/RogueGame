@@ -150,32 +150,25 @@ public class Application {
 
 
 
-
-
-
 //		TO TEST     \\
 //		world.addPlayer(player, gameMap, 10, 13);
-////		gameMap.addItem(new SpaceSuit(), 13,9);
-//
+//		gameMap.addItem(new SpaceSuit(), 13,9);
 
-//
 //		gameMap.addItem(new WaterPistol(), 13, 9);
-//
-////
+
 //		Rocket rocket = new Rocket(moon.at(5,8));
 //		gameMap.add(rocket, gameMap.at(11,10));
-////
-		RocketEngine rocketEngine = new RocketEngine();
-		gameMap.addItem(rocketEngine,11,9);
-//
-		RocketBody rocketBody = new RocketBody();
-		gameMap.addItem(rocketBody, 12,9);
+
+//		RocketEngine rocketEngine = new RocketEngine();
+//		gameMap.addItem(rocketEngine,11,9);
+
+//		RocketBody rocketBody = new RocketBody();
+//		gameMap.addItem(rocketBody, 12,9);
 
 //		Rocket rocket = new Rocket(moon.at(9,6));
 //		gameMap.add(rocket, gameMap.at(10,10));
 
-//
-////		gameMap.addItem(key1, 11, 9);
+//  	gameMap.addItem(key1, 11, 9);
 //		gameMap.addItem(key2, 12,9);
 
 

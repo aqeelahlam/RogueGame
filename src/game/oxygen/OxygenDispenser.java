@@ -3,7 +3,6 @@ import edu.monash.fit2099.engine.*;
 
 public class OxygenDispenser extends Ground {
 
-    private Location location;
     /**
      * This class is used to create an instance of Oxygen Dispenser
      */
@@ -40,8 +39,7 @@ public class OxygenDispenser extends Ground {
     @Override
     public boolean canActorEnter(Actor actor) {
         for (Item item:actor.getInventory()){
-            if(item.getDisplayChar()=='8')
-            {
+            if(item.getDisplayChar()=='8') {
                 return true;
             }
         }
