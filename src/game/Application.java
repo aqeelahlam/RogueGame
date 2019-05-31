@@ -146,7 +146,7 @@ public class Application {
 		moon.add(moonRocket, moon.at(9,9));
 
 		WaterPistol waterPistol = new WaterPistol();
-		moon.addItem(waterPistol, 9,6);
+		moon.addItem(waterPistol, 9,4);
 
 
 
